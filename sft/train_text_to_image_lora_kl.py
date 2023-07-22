@@ -209,11 +209,11 @@ def parse_args():
     help="Number of images that should be generated during validation with `validation_prompt`.",
   )
   parser.add_argument(
-    "--validation_epochs",
+    "--validation_steps",
     type=int,
     default=100,
     help=(
-      "Run fine-tuning validation every X epochs. The validation process consists of running the prompt"
+      "Run fine-tuning validation every X global steps. The validation process consists of running the prompt"
       " `args.validation_prompt` multiple times: `args.num_validation_images`."
     ),
   )
@@ -294,7 +294,7 @@ def parse_args():
   parser.add_argument(
     "--re_thres",
     type=int,
-    default=1,
+    default=0,
     help="flag for reward filltering",
   )
   parser.add_argument(
@@ -342,99 +342,95 @@ def parse_args():
   parser.add_argument("--push_to_hub", action="store_true", help="Whether or not to push the model to the Hub.")
   parser.add_argument("--hub_token", type=str, default=None, help="The token to use to push to the Model Hub.")
   parser.add_argument(
-    "--hub_model_id",
-    type=str,
-    default=None,
-    help="The name of the repository to keep in sync with the local `output_dir`.",
+      '--hub_model_id',
+      type=str,
+      default=None,
+      help=(
+          'The name of the repository to keep in sync with the local '
+          '`output_dir`.'
+      ),
   )
   parser.add_argument(
-    "--logging_dir",
-    type=str,
-    default="logs",
-    help=(
-      "[TensorBoard](https://www.tensorflow.org/tensorboard) log directory. Will default to"
-      " *output_dir/runs/**CURRENT_DATETIME_HOSTNAME***."
-    ),
+      '--logging_dir',
+      type=str,
+      default='logs',
+      help=(
+          '[TensorBoard](https://www.tensorflow.org/tensorboard) log '
+          'directory. Will default to *output_dir/runs/**CURRENT_DATETIME_HOSTNAME***.'
+      ),
   )
   parser.add_argument(
-    "--mixed_precision",
-    type=str,
-    default="fp16",
-    choices=["no", "fp16", "bf16"],
-    help=(
-      "Whether to use mixed precision. Choose between fp16 and bf16 (bfloat16). Bf16 requires PyTorch >="
-      " 1.10.and an Nvidia Ampere GPU.  Default to the value of accelerate config of the current system or the"
-      " flag passed with the `accelerate.launch` command. Use this argument to override the accelerate config."
-    ),
+      '--mixed_precision',
+      type=str,
+      default='fp16',
+      choices=['no', 'fp16', 'bf16'],
+      help=(
+          'Whether to use mixed precision. Choose between fp16 and bf16 '
+          '(bfloat16). Bf16 requires PyTorch >= 1.10 and an Nvidia Ampere '
+          'GPU. Default to the value of accelerate config of the current '
+          'system or the flag passed with the `accelerate.launch` command. '
+          'Use this argument to override the accelerate config.'
+      ),
   )
   parser.add_argument(
-    "--report_to",
-    type=str,
-    default="tensorboard",
-    help=(
-      'The integration to report the results and logs to. Supported platforms are `"tensorboard"`'
-      ' (default), `"wandb"` and `"comet_ml"`. Use `"all"` to report to all integrations.'
-    ),
+      '--report_to',
+      type=str,
+      default='tensorboard',
+      help=(
+        'The integration to report the results and logs to. Supported platforms '
+        'are `"tensorboard"` (default), `"wandb"` and `"comet_ml"`. Use `"all"` '
+        'to report to all integrations.'
+      ),
   )
-  parser.add_argument("--local_rank", type=int, default=-1, help="For distributed training: local_rank")
+  parser.add_argument('--local_rank', type=int, default=-1,
+                      help='or distributed training: local_rank')
   parser.add_argument(
-    "--checkpointing_steps",
-    type=int,
-    default=500,
-    help=(
-      "Save a checkpoint of the training state every X updates. These checkpoints are only suitable for resuming"
-      " training using `--resume_from_checkpoint`."
-    ),
+      '--checkpointing_steps',
+      type=int,
+      default=500,
+      help=(
+          'Save a checkpoint of the training state every X updates. These '
+          'checkpoints are only suitable for resuming training using '
+          '`--resume_from_checkpoint`.'
+      ),
   )
+  parser.add_argument('--kl_coeff', type=float, default=0.0,
+                      help='Coefficient for the KL loss')
   parser.add_argument(
-    "--kl_coeff",
-    type=float,
-    default=0.0,
-    help="coeff for kl loss",
-  )
-  parser.add_argument(
-    "--checkpoints_total_limit",
-    type=int,
-    default=None,
-    help=(
-      "Max number of checkpoints to store. Passed as `total_limit` to the `Accelerator` `ProjectConfiguration`."
-      " See Accelerator::save_state https://huggingface.co/docs/accelerate/package_reference/accelerator#accelerate.Accelerator.save_state"
-      " for more docs"
-    ),
-  )
-  parser.add_argument(
-    "--resume_from_checkpoint",
-    type=str,
-    default=None,
-    help=(
-      "Whether training should be resumed from a previous checkpoint. Use a path saved by"
-      ' `--checkpointing_steps`, or `"latest"` to automatically select the last available checkpoint.'
-    ),
+      '--checkpoints_total_limit',
+      type=int,
+      default=None,
+      help=(
+        'Max number of checkpoints to store. Passed as `total_limit` to the '
+        '`Accelerator` `ProjectConfiguration`. See Accelerator::save_state '
+        'https://huggingface.co/docs/accelerate/package_reference/accelerator#accelerate.Accelerator.save_state'
+      ),
   )
   parser.add_argument(
-    "--path_imagereward",
-    type=str,
-    default=None,
+      '--resume_from_checkpoint',
+      type=str,
+      default=None,
+      help=(
+          'Whether training should be resumed from a previous checkpoint. Use '
+          'a path saved by `--checkpointing_steps`, or `"latest"` to '
+          'automatically select the last available checkpoint.'
+      ),
   )
+  parser.add_argument('--path_imagereward', type=str, default=None)
   parser.add_argument(
-    "--enable_xformers_memory_efficient_attention", action="store_true", help="Whether or not to use xformers."
+      '--enable_xformers_memory_efficient_attention',
+      action='store_true',
+      help='Whether or not to use xformers.',
   )
+  parser.add_argument('--multi_flag', type=int, default=0)
+  parser.add_argument('--weak_flag', type=int, default=1)
   parser.add_argument(
-    "--multi_flag",
-    type=int,
-    default=0,
+      '--tracker_project_name',
+      type=str,
+      default='text2image-fine-tune-tmp',
+      help='The `project_name` argument passed to Accelerator.init_trackers',
   )
-  parser.add_argument(
-    '--weak_flag',
-    type=int,
-    default=0,
-  )
-  parser.add_argument(
-    '--tracker_project_name',
-    type=str,
-    default='text2image-fine-tune-test',
-    help='The `project_name` argument passed to Accelerator.init_trackers',
-  )
+
   args = parser.parse_args()
   env_local_rank = int(os.environ.get('LOCAL_RANK', -1))
   if env_local_rank != -1 and env_local_rank != args.local_rank:
@@ -468,17 +464,18 @@ def mkdir_p(path):
 
 
 DATASET_NAME_MAPPING = {
-  'lambdalabs/pokemon-blip-captions': ('image', 'text'),
+    'lambdalabs/pokemon-blip-captions': ('image', 'text'),
 }
 
 
 def main():
   args = parse_args()
-  # Set log_dir
-  file_name = args.train_data_dir.split('/')[-2]
-  # prefix = '/loRA_KL_v2/' + file_name + "_th" + str(args.re_thres)
-  prefix = file_name + '_th' + str(args.re_thres)
-  args.output_dir += '_' + prefix + '/b' + str(args.train_batch_size)
+  # Set log_dir.
+  data_dir = os.path.basename(args.train_data_dir)
+  # prefix = '/loRA_KL_v2/' + data_dir + "_th" + str(args.re_thres)
+  # prefix = data_dir #+ '_th' + str(args.re_thres)
+  args.output_dir += data_dir #'_' + prefix
+  args.output_dir += '/b' + str(args.train_batch_size)
   args.output_dir += '_a' + str(args.gradient_accumulation_steps)
   args.output_dir += '_lr' + str(args.learning_rate)
   args.output_dir += '_kl' + str(args.kl_coeff)
@@ -492,12 +489,13 @@ def main():
 
   accelerator_project_config = ProjectConfiguration(total_limit=args.checkpoints_total_limit)
 
+  # See https://huggingface.co/docs/accelerate/usage_guides/gradient_accumulation.
   accelerator = Accelerator(
-    gradient_accumulation_steps=args.gradient_accumulation_steps,
-    mixed_precision=args.mixed_precision,
-    log_with=args.report_to,
-    project_dir=logging_dir,
-    project_config=accelerator_project_config,
+      gradient_accumulation_steps=args.gradient_accumulation_steps,
+      mixed_precision=args.mixed_precision,
+      log_with=args.report_to,
+      project_dir=logging_dir,
+      project_config=accelerator_project_config,
   )
   if args.report_to == "wandb":
     if not is_wandb_available():
@@ -721,13 +719,13 @@ def main():
     images = [image.convert("RGB") for image in examples[image_column]]
     examples["pixel_values"] = [train_transforms(image) for image in images]
     examples["input_ids"] = tokenize_captions(examples)
-    examples["weights"] = [float(w) for w in examples[reward_column]]
+    examples["weights"] = [-1.0 * float(w) for w in examples[reward_column]]
     return examples
 
   with accelerator.main_process_first():
     if args.max_train_samples is not None:
       dataset = dataset.shuffle(seed=args.seed).select(range(args.max_train_samples))
-    # Set the training transforms
+    # Set the training transforms.
     train_dataset = dataset.with_transform(preprocess_train)
 
   def collate_fn(examples):
@@ -756,10 +754,10 @@ def main():
     overrode_max_train_steps = True
 
   lr_scheduler = get_scheduler(
-    args.lr_scheduler,
-    optimizer=optimizer,
-    num_warmup_steps=args.lr_warmup_steps * args.gradient_accumulation_steps,
-    num_training_steps=args.max_train_steps * args.gradient_accumulation_steps,
+      args.lr_scheduler,
+      optimizer=optimizer,
+      num_warmup_steps=args.lr_warmup_steps * args.gradient_accumulation_steps,
+      num_training_steps=args.max_train_steps * args.gradient_accumulation_steps,
   )
 
   # Prepare everything with our `accelerator`.
@@ -767,7 +765,7 @@ def main():
   #     lora_layers, optimizer, train_dataloader, lr_scheduler, image_reward
   # )
   lora_layers, optimizer, train_dataloader, lr_scheduler = accelerator.prepare(
-    lora_layers, optimizer, train_dataloader, lr_scheduler)
+      lora_layers, optimizer, train_dataloader, lr_scheduler)
 
   # We need to recalculate our total training steps as the size of the training dataloader may have changed.
   num_update_steps_per_epoch = math.ceil(len(train_dataloader) / args.gradient_accumulation_steps)
@@ -794,15 +792,15 @@ def main():
   global_step = 0
   first_epoch = 0
 
-  # Potentially load in the weights and states from a previous save
+  # Potentially load in the weights and states from a previous save.
   if args.resume_from_checkpoint:
     if args.resume_from_checkpoint != 'latest':
       path = os.path.basename(args.resume_from_checkpoint)
     else:
       # Get the most recent checkpoint.
-      dirs = os.listdir(args.output_dir)
-      dirs = [d for d in dirs if d.startswith('checkpoint')]
-      dirs = sorted(dirs, key=lambda x: int(x.split("-")[1]))
+      dirs = os.listdir(os.path.join(args.output_dir, 'checkpoint'))
+      dirs = [d for d in dirs if d.startswith('ckpt')]
+      dirs = sorted(dirs, key=lambda x: int(x.split('_')[1]))
       path = dirs[-1] if len(dirs) > 0 else None
 
     if path is None:
@@ -814,7 +812,7 @@ def main():
     else:
       accelerator.print(f'Resuming from checkpoint {path}')
       accelerator.load_state(os.path.join(args.output_dir, path))
-      global_step = int(path.split("-")[1])
+      global_step = int(path.split('_')[1])
 
       resume_global_step = global_step * args.gradient_accumulation_steps
       first_epoch = global_step // num_update_steps_per_epoch
@@ -834,21 +832,22 @@ def main():
     unet.train()
     train_loss, train_kl_loss = 0.0, 0.0
     for step, batch in enumerate(train_dataloader):
-      # Skip steps until we reach the resumed step
+      # Skip steps until we reach the resumed step.
       if args.resume_from_checkpoint and epoch == first_epoch and step < resume_step:
         if step % args.gradient_accumulation_steps == 0:
           progress_bar.update(1)
         continue
 
+      # Gradient accumulation.
       with accelerator.accumulate(unet):
-        # Convert images to latent space
+        # Convert images to latent space.
         latents = vae.encode(batch['pixel_values'].to(dtype=weight_dtype)).latent_dist.sample()
         latents = latents * vae.config.scaling_factor
 
-        # Sample noise that we'll add to the latents
+        # Sample noise that we'll add to the latents.
         noise = torch.randn_like(latents)
         bsz = latents.shape[0]
-        # Sample a random timestep for each image
+        # Sample a random timestep for each image.
         timesteps = torch.randint(0, noise_scheduler.num_train_timesteps, (bsz,), device=latents.device)
         timesteps = timesteps.long()
 
@@ -867,7 +866,7 @@ def main():
         else:
           raise ValueError(f'Unknown prediction type {noise_scheduler.config.prediction_type}')
 
-        # Predict the noise residual and compute loss
+        # Predict the noise residual and compute loss.
         model_pred = unet(noisy_latents, timesteps, encoder_hidden_states).sample
         old_model_pred = unet_copy(noisy_latents, timesteps, encoder_hidden_states).sample
 
@@ -887,7 +886,7 @@ def main():
         avg_kl_loss = accelerator.gather(kl_loss.repeat(args.train_batch_size)).mean()
         train_kl_loss += avg_kl_loss.item() / args.gradient_accumulation_steps
 
-        # Backpropagate
+        # Backpropagate.
         accelerator.backward(loss)
         if accelerator.sync_gradients:
           params_to_clip = lora_layers.parameters()
@@ -896,7 +895,7 @@ def main():
         lr_scheduler.step()
         optimizer.zero_grad()
 
-      # Checks if the accelerator has performed an optimization step behind the scenes
+      # Check if the accelerator has performed an optimization step behind the scenes.
       if accelerator.sync_gradients:
         progress_bar.update(1)
         global_step += 1
@@ -914,20 +913,18 @@ def main():
             # unet.save_attn_procs(save_path)
             accelerator.save_state(save_path)
             logger.info(f'Saved a checkpoint to {save_path}')
-
-      logs = {'step_loss': loss.detach().item(),
-              'lr': lr_scheduler.get_last_lr()[0]}
-      progress_bar.set_postfix(**logs)
-
-      # Testing
-      if accelerator.is_main_process:
-        if args.validation_prompt is not None and global_step % args.validation_epochs == 0:
+        
+        # Testing.
+        # TODO(kykim): Refactor inference.
+        if (accelerator.is_main_process and
+            args.validation_prompt is not None and
+            global_step % args.validation_steps == 0):
           # Create pipeline.
           pipeline = DiffusionPipeline.from_pretrained(
-            args.pretrained_model_name_or_path,
-            unet=accelerator.unwrap_model(unet),
-            revision=args.revision,
-            torch_dtype=weight_dtype,
+              args.pretrained_model_name_or_path,
+              unet=accelerator.unwrap_model(unet),
+              revision=args.revision,
+              torch_dtype=weight_dtype,
           )
           pipeline = pipeline.to(accelerator.device)
           pipeline.set_progress_bar_config(disable=True)
@@ -936,8 +933,8 @@ def main():
           tot_reward = []
           for tidx, validation_prompt in enumerate(test_batch):
             logger.info(
-              f"Running validation... \n Generating {args.num_validation_images} images with prompt:"
-              f" {validation_prompt}."
+              f'Running validation... \n Generating {args.num_validation_images} images with prompt:'
+              f' {validation_prompt}.'
             )
 
             # Run inference.
@@ -960,6 +957,10 @@ def main():
           # accelerator.log({
           #     "tot_test_reward": np.mean(tot_reward)}, step=global_step)
 
+      logs = {'step_loss': loss.detach().item(),
+              'lr': lr_scheduler.get_last_lr()[0]}
+      progress_bar.set_postfix(**logs)
+
       if global_step >= args.max_train_steps:
         break
 
@@ -971,11 +972,11 @@ def main():
 
     if args.push_to_hub:
       save_model_card(
-        repo_name,
-        images=images,
-        base_model=args.pretrained_model_name_or_path,
-        dataset_name=args.dataset_name,
-        repo_folder=args.output_dir,
+          repo_name,
+          images=images,
+          base_model=args.pretrained_model_name_or_path,
+          dataset_name=args.dataset_name,
+          repo_folder=args.output_dir,
       )
       repo.push_to_hub(commit_message='End of training', blocking=False,
                        auto_lfs_prune=True)
@@ -983,8 +984,8 @@ def main():
   # Final inference.
   # Load previous pipeline
   pipeline = DiffusionPipeline.from_pretrained(
-    args.pretrained_model_name_or_path, revision=args.revision,
-    torch_dtype=weight_dtype)
+      args.pretrained_model_name_or_path, revision=args.revision,
+      torch_dtype=weight_dtype)
   pipeline = pipeline.to(accelerator.device)
   # TODO(kykim): Inference.
 
