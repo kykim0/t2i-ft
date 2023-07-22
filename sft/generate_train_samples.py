@@ -20,16 +20,6 @@ import rewards
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 
-def mkdir_p(path):
-  try:
-    os.makedirs(path)
-  except OSError as exc:
-    if exc.errno == errno.EEXIST and os.path.isdir(path):
-      pass
-    else:
-      raise
-
-
 def parse_args():
   parser = argparse.ArgumentParser()
   parser.add_argument('--cqa_file', type=str, default='')
@@ -42,6 +32,16 @@ def parse_args():
                       default='runwayml/stable-diffusion-v1-5')
   args = parser.parse_args()
   return args
+
+
+def mkdir_p(path):
+  try:
+    os.makedirs(path)
+  except OSError as exc:
+    if exc.errno == errno.EEXIST and os.path.isdir(path):
+      pass
+    else:
+      raise
 
 
 def image_filename(pidx, seed):
@@ -81,6 +81,8 @@ def generate_images(args, all_captions, c_to_idx):
         for caption, img_result in zip(captions, img_results):
           filename = img_fn(c_to_idx[caption], seed)
           img_result.save(filename)
+
+  distributed_state.wait_for_everyone()
 
 
 def compute_rewards(args, captions, images, cqas):
