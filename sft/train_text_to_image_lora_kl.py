@@ -474,7 +474,7 @@ def main():
   data_dir = os.path.basename(args.train_data_dir)
   # prefix = '/loRA_KL_v2/' + data_dir + "_th" + str(args.re_thres)
   # prefix = data_dir #+ '_th' + str(args.re_thres)
-  args.output_dir += data_dir #'_' + prefix
+  # args.output_dir += data_dir #'_' + prefix
   args.output_dir += '/b' + str(args.train_batch_size)
   args.output_dir += '_a' + str(args.gradient_accumulation_steps)
   args.output_dir += '_lr' + str(args.learning_rate)
@@ -623,7 +623,7 @@ def main():
       import bitsandbytes as bnb
     except ImportError:
       raise ImportError(
-        "Please install bitsandbytes to use 8-bit Adam. You can do so by running `pip install bitsandbytes`"
+         'Please install bitsandbytes to use 8-bit Adam. You can do so by running `pip install bitsandbytes`'
       )
 
     optimizer_cls = bnb.optim.AdamW8bit
@@ -631,11 +631,11 @@ def main():
     optimizer_cls = torch.optim.AdamW
 
   optimizer = optimizer_cls(
-    lora_layers.parameters(),
-    lr=args.learning_rate,
-    betas=(args.adam_beta1, args.adam_beta2),
-    weight_decay=args.adam_weight_decay,
-    eps=args.adam_epsilon,
+      lora_layers.parameters(),
+      lr=args.learning_rate,
+      betas=(args.adam_beta1, args.adam_beta2),
+      weight_decay=args.adam_weight_decay,
+      eps=args.adam_epsilon,
   )
 
   import copy
@@ -692,7 +692,7 @@ def main():
       if isinstance(caption, str):
         captions.append(caption)
       elif isinstance(caption, (list, np.ndarray)):
-        # take a random caption if there are multiple
+        # Take a random caption if there are multiple.
         captions.append(random.choice(caption) if is_train else caption[0])
       else:
         raise ValueError(
@@ -777,7 +777,12 @@ def main():
   # We need to initialize the trackers we use, and also store our configuration.
   # The trackers initializes automatically on the main process.
   if accelerator.is_main_process:
-    accelerator.init_trackers(args.tracker_project_name, config=vars(args))
+    run_name = os.path.basename(args.output_dir)
+    accelerator.init_trackers(
+        args.tracker_project_name,
+        config=vars(args),
+        init_kwargs={'wandb': {'name': run_name}},
+    )
 
   # Train!
   total_batch_size = args.train_batch_size * accelerator.num_processes * args.gradient_accumulation_steps
@@ -913,7 +918,7 @@ def main():
             # unet.save_attn_procs(save_path)
             accelerator.save_state(save_path)
             logger.info(f'Saved a checkpoint to {save_path}')
-        
+
         # Testing.
         # TODO(kykim): Refactor inference.
         if (accelerator.is_main_process and
