@@ -58,8 +58,8 @@ logger = get_logger(__name__, log_level="INFO")
 def save_model_card(repo_name, images=None, base_model=str, dataset_name=str, repo_folder=None):
   img_str = ""
   for i, image in enumerate(images):
-    image.save(os.path.join(repo_folder, f"image_{i}.png"))
-    img_str += f"![img_{i}](./image_{i}.png)\n"
+    image.save(os.path.join(repo_folder, f'image_{i}.png'))
+    img_str += f'![img_{i}](./image_{i}.png)\n'
 
   yaml = f"""
 ---
@@ -79,7 +79,7 @@ inference: true
 These are LoRA adaption weights for {base_model}. The weights were fine-tuned on the {dataset_name} dataset. You can find some example images in the following. \n
 {img_str}
 """
-  with open(os.path.join(repo_folder, "README.md"), "w") as f:
+  with open(os.path.join(repo_folder, 'README.md'), 'w') as f:
     f.write(yaml + model_card)
 
 
@@ -87,74 +87,72 @@ def get_test_prompts(args):
   flag = args.multi_flag
   if flag == 1:
     test_batch = [
-      "A pink colored giraffe.",
-      "An emoji of a baby panda wearing a red hat, green gloves, red shirt, and green pants.",
-      "A blue bird and a brown bear.",
-      "A yellow book and a red vase.",
-      "Three dogs on the street.",
-      "Two cats and one dog sitting on the grass.",
-      "A wine glass on top of a dog.",
-      "A cube made of denim. A cube with the texture of denim.",
+        "A pink colored giraffe.",
+        "An emoji of a baby panda wearing a red hat, green gloves, red shirt, and green pants.",
+        "A blue bird and a brown bear.",
+        "A yellow book and a red vase.",
+        "Three dogs on the street.",
+        "Two cats and one dog sitting on the grass.",
+        "A wine glass on top of a dog.",
+        "A cube made of denim. A cube with the texture of denim.",
     ]
   elif flag == 2:
     test_batch = [
-      "a panda bear with aviator glasses on its head",
-      "Times Square during the day",
-      "the skyline of New York City",
-      "square red apples on a tree with circular green leaves",
-      "a map of Italy",
-      "a sketch of a horse",
-      "the word 'START' on a blue t-shirt",
-      "a dolphin in an astronaut suit on saturn",
+        "a panda bear with aviator glasses on its head",
+        "Times Square during the day",
+        "the skyline of New York City",
+        "square red apples on a tree with circular green leaves",
+        "a map of Italy",
+        "a sketch of a horse",
+        "the word 'START' on a blue t-shirt",
+        "a dolphin in an astronaut suit on saturn",
     ]
   elif flag == 3:
     test_batch = [
-      "A Christmas tree with lights and teddy bear",
-      "A group of planes near a large wall of windows.",
-      "three men riding horses through a grassy field",
-      "A man and a woman posing in front of a motorcycle.",
-      "A man sitting on a motorcycle smoking a cigarette.",
-      "A pear, orange, and two bananas in a wooden bowl.",
-      "Some people posting in front of a camera for a picture.",
-      "Some very big furry brown bears in a big grass field.",
+        "A Christmas tree with lights and teddy bear",
+        "A group of planes near a large wall of windows.",
+        "three men riding horses through a grassy field",
+        "A man and a woman posing in front of a motorcycle.",
+        "A man sitting on a motorcycle smoking a cigarette.",
+        "A pear, orange, and two bananas in a wooden bowl.",
+        "Some people posting in front of a camera for a picture.",
+        "Some very big furry brown bears in a big grass field.",
     ]
   elif flag == 4:
     test_batch = [
-      "a photo of blue bear",
-      "a photo of blue fire hydrant",
-      "a photo of bike and skateboard; skateboard is left to bike",
-      "a photo of bed and human; human is right to bed",
-      "a photo of suitcase and bench; bench is left to suitcase",
-      "a photo of bed and stop sign; stop sign is above bed",
-      "a photo of dining table and traffic light; traffic light is below dining table",
-      "a photo of bear and bus; bus is above bear",
+        "a photo of blue bear",
+        "a photo of blue fire hydrant",
+        "a photo of bike and skateboard; skateboard is left to bike",
+        "a photo of bed and human; human is right to bed",
+        "a photo of suitcase and bench; bench is left to suitcase",
+        "a photo of bed and stop sign; stop sign is above bed",
+        "a photo of dining table and traffic light; traffic light is below dining table",
+        "a photo of bear and bus; bus is above bear",
     ]
   elif flag == 5:
     test_batch = [
-      "A green colored rabbit.",
-      "A green colored cat.",
-      "A cat and a cup.",
-      "A cat and a dog.",
-      "Four wolves in the park.",
-      "Four birds in the park.",
-      "A dog on the moon.",
-      "A lion on the moon.",
+        "A green colored rabbit.",
+        "A green colored cat.",
+        "A cat and a cup.",
+        "A cat and a dog.",
+        "Four wolves in the park.",
+        "Four birds in the park.",
+        "A dog on the moon.",
+        "A lion on the moon.",
     ]
   else:
-    test_batch = [args.validation_prompt]
+    test_batch = [args.validation_prompt] if args.validation_prompt else []
 
   return test_batch
 
 
 def parse_args():
-  parser = argparse.ArgumentParser(description="Simple example of a training script.")
+  parser = argparse.ArgumentParser(description='Simple example of a training script.')
   parser.add_argument(
-    "--pretrained_model_name_or_path",
+    '--pretrained_model_name_or_path',
     type=str,
-    default="runwayml/stable-diffusion-v1-5",
-    # default=None,
-    # required=True,
-    help="Path to pretrained model or model identifier from huggingface.co/models.",
+    default='runwayml/stable-diffusion-v1-5',
+    help='Path to pretrained model or model identifier from huggingface.co/models.',
   )
   parser.add_argument(
     "--revision",
@@ -447,10 +445,10 @@ def get_full_repo_name(model_id: str, organization: Optional[str] = None, token:
   if token is None:
     token = HfFolder.get_token()
   if organization is None:
-    username = whoami(token)["name"]
-    return f"{username}/{model_id}"
+    username = whoami(token)['name']
+    return f'{username}/{model_id}'
   else:
-    return f"{organization}/{model_id}"
+    return f'{organization}/{model_id}'
 
 
 def mkdir_p(path):
@@ -466,6 +464,46 @@ def mkdir_p(path):
 DATASET_NAME_MAPPING = {
     'lambdalabs/pokemon-blip-captions': ('image', 'text'),
 }
+
+
+def inference(args, accelerator, unet, weight_dtype, test_batch, global_step):
+  # Create pipeline.
+  pipeline = DiffusionPipeline.from_pretrained(
+      args.pretrained_model_name_or_path,
+      unet=accelerator.unwrap_model(unet),
+      revision=args.revision,
+      torch_dtype=weight_dtype,
+  )
+  pipeline = pipeline.to(accelerator.device)
+  pipeline.set_progress_bar_config(disable=True)
+  generator = torch.Generator(device=accelerator.device).manual_seed(args.seed)
+
+  tot_reward = []
+  for tidx, validation_prompt in enumerate(test_batch):
+    logger.info(
+      f'Running validation... \n Generating {args.num_validation_images} images with prompt:'
+      f' {validation_prompt}.'
+    )
+
+    # Run inference.
+    images, test_scores = [], []
+    for iidx in range(args.num_validation_images):
+      images.append(
+        pipeline(validation_prompt, num_inference_steps=50, generator=generator).images[0]
+      )
+      filename = os.path.join(args.output_dir, 'inference',
+                              f'test_{global_step}_{tidx}_{iidx}.png')
+      images[-1].save(filename)
+      # score = calculate_reward(
+      #     images[-1], validation_prompt)
+      # test_scores.append(score.item())
+    # accelerator.log({
+    #     f"test_reward_{tidx}": np.mean(test_scores)}, step=global_step)
+    # tot_reward.append(np.mean(test_scores))
+  del pipeline
+  torch.cuda.empty_cache()
+  # accelerator.log({
+  #     "tot_test_reward": np.mean(tot_reward)}, step=global_step)
 
 
 def main():
@@ -696,11 +734,11 @@ def main():
         captions.append(random.choice(caption) if is_train else caption[0])
       else:
         raise ValueError(
-          f"Caption column `{caption_column}` should contain either strings or lists of strings."
+          f'Caption column `{caption_column}` should contain either strings or lists of strings.'
         )
     inputs = tokenizer(
-      captions, max_length=tokenizer.model_max_length, padding="max_length",
-      truncation=True, return_tensors="pt"
+      captions, max_length=tokenizer.model_max_length, padding='max_length',
+      truncation=True, return_tensors='pt'
     )
     return inputs.input_ids
 
@@ -716,10 +754,10 @@ def main():
   )
 
   def preprocess_train(examples):
-    images = [image.convert("RGB") for image in examples[image_column]]
-    examples["pixel_values"] = [train_transforms(image) for image in images]
-    examples["input_ids"] = tokenize_captions(examples)
-    examples["weights"] = [-1.0 * float(w) for w in examples[reward_column]]
+    images = [image.convert('RGB') for image in examples[image_column]]
+    examples['pixel_values'] = [train_transforms(image) for image in images]
+    examples['input_ids'] = tokenize_captions(examples)
+    examples['weights'] = [-1.0 * float(w) for w in examples[reward_column]]
     return examples
 
   with accelerator.main_process_first():
@@ -729,12 +767,12 @@ def main():
     train_dataset = dataset.with_transform(preprocess_train)
 
   def collate_fn(examples):
-    pixel_values = torch.stack([example["pixel_values"] for example in examples])
+    pixel_values = torch.stack([example['pixel_values'] for example in examples])
     pixel_values = pixel_values.to(memory_format=torch.contiguous_format).float()
-    input_ids = torch.stack([example["input_ids"] for example in examples])
-    weights = torch.Tensor([example["weights"] for example in examples])
+    input_ids = torch.stack([example['input_ids'] for example in examples])
+    weights = torch.Tensor([example['weights'] for example in examples])
     weights = weights.to(memory_format=torch.contiguous_format).float()
-    return {"pixel_values": pixel_values, "input_ids": input_ids, "weights": weights}
+    return {'pixel_values': pixel_values, 'input_ids': input_ids, 'weights': weights}
 
   # DataLoaders creation:
   train_dataloader = torch.utils.data.DataLoader(
@@ -761,14 +799,13 @@ def main():
   )
 
   # Prepare everything with our `accelerator`.
-  # lora_layers, optimizer, train_dataloader, lr_scheduler, image_reward = accelerator.prepare(
-  #     lora_layers, optimizer, train_dataloader, lr_scheduler, image_reward
-  # )
   lora_layers, optimizer, train_dataloader, lr_scheduler = accelerator.prepare(
       lora_layers, optimizer, train_dataloader, lr_scheduler)
 
-  # We need to recalculate our total training steps as the size of the training dataloader may have changed.
-  num_update_steps_per_epoch = math.ceil(len(train_dataloader) / args.gradient_accumulation_steps)
+  # We need to recalculate our total training steps as the size of the
+  # training dataloader may have changed.
+  num_update_steps_per_epoch = math.ceil(
+      len(train_dataloader) / args.gradient_accumulation_steps)
   if overrode_max_train_steps:
     args.max_train_steps = args.num_train_epochs * num_update_steps_per_epoch
   # Afterwards we recalculate our number of training epochs
@@ -787,13 +824,13 @@ def main():
   # Train!
   total_batch_size = args.train_batch_size * accelerator.num_processes * args.gradient_accumulation_steps
 
-  logger.info("***** Running training *****")
-  logger.info(f"  Num examples = {len(train_dataset)}")
-  logger.info(f"  Num Epochs = {args.num_train_epochs}")
-  logger.info(f"  Instantaneous batch size per device = {args.train_batch_size}")
-  logger.info(f"  Total train batch size (w. parallel, distributed & accumulation) = {total_batch_size}")
-  logger.info(f"  Gradient Accumulation steps = {args.gradient_accumulation_steps}")
-  logger.info(f"  Total optimization steps = {args.max_train_steps}")
+  logger.info('***** Running training *****')
+  logger.info(f'  Num examples = {len(train_dataset)}')
+  logger.info(f'  Num Epochs = {args.num_train_epochs}')
+  logger.info(f'  Instantaneous batch size per device = {args.train_batch_size}')
+  logger.info(f'  Total train batch size (w. parallel, distributed & accumulation) = {total_batch_size}')
+  logger.info(f'  Gradient Accumulation steps = {args.gradient_accumulation_steps}')
+  logger.info(f'  Total optimization steps = {args.max_train_steps}')
   global_step = 0
   first_epoch = 0
 
@@ -833,6 +870,7 @@ def main():
     return blip_reward.to(weight_dtype).squeeze(0).squeeze(0)
 
   test_batch = get_test_prompts(args)
+  inference(args, accelerator, unet, weight_dtype, test_batch, global_step)
   for epoch in range(first_epoch, args.num_train_epochs):
     unet.train()
     train_loss, train_kl_loss = 0.0, 0.0
@@ -911,56 +949,16 @@ def main():
 
         if global_step % args.checkpointing_steps == 0:
           if accelerator.is_main_process:
-            #save_path = os.path.join(args.output_dir, f"checkpoint-{global_step}")
-            #accelerator.save_state(save_path)
             save_path = os.path.join(args.output_dir, 'checkpoint',
                                      f'ckpt_{global_step}')
-            # unet.save_attn_procs(save_path)
+            unet.save_attn_procs(save_path)
             accelerator.save_state(save_path)
             logger.info(f'Saved a checkpoint to {save_path}')
 
         # Testing.
-        # TODO(kykim): Refactor inference.
         if (accelerator.is_main_process and
-            args.validation_prompt is not None and
             global_step % args.validation_steps == 0):
-          # Create pipeline.
-          pipeline = DiffusionPipeline.from_pretrained(
-              args.pretrained_model_name_or_path,
-              unet=accelerator.unwrap_model(unet),
-              revision=args.revision,
-              torch_dtype=weight_dtype,
-          )
-          pipeline = pipeline.to(accelerator.device)
-          pipeline.set_progress_bar_config(disable=True)
-          generator = torch.Generator(device=accelerator.device).manual_seed(args.seed)
-
-          tot_reward = []
-          for tidx, validation_prompt in enumerate(test_batch):
-            logger.info(
-              f'Running validation... \n Generating {args.num_validation_images} images with prompt:'
-              f' {validation_prompt}.'
-            )
-
-            # Run inference.
-            images, test_scores = [], []
-            for iidx in range(args.num_validation_images):
-              images.append(
-                pipeline(validation_prompt, num_inference_steps=50, generator=generator).images[0]
-              )
-              filename = os.path.join(args.output_dir, 'inference',
-                                      f'test_{global_step}_{tidx}_{iidx}.png')
-              images[-1].save(filename)
-              # score = calculate_reward(
-              #     images[-1], validation_prompt)
-              # test_scores.append(score.item())
-            # accelerator.log({
-            #     f"test_reward_{tidx}": np.mean(test_scores)}, step=global_step)
-            # tot_reward.append(np.mean(test_scores))
-          del pipeline
-          torch.cuda.empty_cache()
-          # accelerator.log({
-          #     "tot_test_reward": np.mean(tot_reward)}, step=global_step)
+          inference(args, accelerator, unet, weight_dtype, test_batch, global_step)
 
       logs = {'step_loss': loss.detach().item(),
               'lr': lr_scheduler.get_last_lr()[0]}
@@ -987,15 +985,8 @@ def main():
                        auto_lfs_prune=True)
 
   # Final inference.
-  # Load previous pipeline
-  pipeline = DiffusionPipeline.from_pretrained(
-      args.pretrained_model_name_or_path, revision=args.revision,
-      torch_dtype=weight_dtype)
-  pipeline = pipeline.to(accelerator.device)
-  # TODO(kykim): Inference.
+  inference(args, accelerator, unet, weight_dtype, test_batch, global_step)
 
-  # Load attention processors.
-  pipeline.unet.load_attn_procs(args.output_dir)
   accelerator.end_training()
 
 
