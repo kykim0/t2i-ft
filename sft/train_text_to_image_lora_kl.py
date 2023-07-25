@@ -52,7 +52,7 @@ from diffusers.utils.import_utils import is_xformers_available
 # Will error if the minimal version of diffusers is not installed. Remove at your own risks.
 # check_min_version("0.14.0.dev0")
 
-logger = get_logger(__name__, log_level="INFO")
+logger = get_logger(__name__, log_level='INFO')
 
 
 def save_model_card(repo_name, images=None, base_model=str, dataset_name=str, repo_folder=None):
@@ -87,58 +87,58 @@ def get_test_prompts(args):
   flag = args.multi_flag
   if flag == 1:
     test_batch = [
-        "A pink colored giraffe.",
-        "An emoji of a baby panda wearing a red hat, green gloves, red shirt, and green pants.",
-        "A blue bird and a brown bear.",
-        "A yellow book and a red vase.",
-        "Three dogs on the street.",
-        "Two cats and one dog sitting on the grass.",
-        "A wine glass on top of a dog.",
-        "A cube made of denim. A cube with the texture of denim.",
+        'A pink colored giraffe.',
+        'An emoji of a baby panda wearing a red hat, green gloves, red shirt, and green pants.',
+        'A blue bird and a brown bear.',
+        'A yellow book and a red vase.',
+        'Three dogs on the street.',
+        'Two cats and one dog sitting on the grass.',
+        'A wine glass on top of a dog.',
+        'A cube made of denim. A cube with the texture of denim.',
     ]
   elif flag == 2:
     test_batch = [
-        "a panda bear with aviator glasses on its head",
-        "Times Square during the day",
-        "the skyline of New York City",
-        "square red apples on a tree with circular green leaves",
-        "a map of Italy",
-        "a sketch of a horse",
-        "the word 'START' on a blue t-shirt",
-        "a dolphin in an astronaut suit on saturn",
+        'a panda bear with aviator glasses on its head',
+        'Times Square during the day',
+        'the skyline of New York City',
+        'square red apples on a tree with circular green leaves',
+        'a map of Italy',
+        'a sketch of a horse',
+        'the word "START" on a blue t-shirt',
+        'a dolphin in an astronaut suit on saturn',
     ]
   elif flag == 3:
     test_batch = [
-        "A Christmas tree with lights and teddy bear",
-        "A group of planes near a large wall of windows.",
-        "three men riding horses through a grassy field",
-        "A man and a woman posing in front of a motorcycle.",
-        "A man sitting on a motorcycle smoking a cigarette.",
-        "A pear, orange, and two bananas in a wooden bowl.",
-        "Some people posting in front of a camera for a picture.",
-        "Some very big furry brown bears in a big grass field.",
+        'A Christmas tree with lights and teddy bear',
+        'A group of planes near a large wall of windows.',
+        'three men riding horses through a grassy field',
+        'A man and a woman posing in front of a motorcycle.',
+        'A man sitting on a motorcycle smoking a cigarette.',
+        'A pear, orange, and two bananas in a wooden bowl.',
+        'Some people posting in front of a camera for a picture.',
+        'Some very big furry brown bears in a big grass field.',
     ]
   elif flag == 4:
     test_batch = [
-        "a photo of blue bear",
-        "a photo of blue fire hydrant",
-        "a photo of bike and skateboard; skateboard is left to bike",
-        "a photo of bed and human; human is right to bed",
-        "a photo of suitcase and bench; bench is left to suitcase",
-        "a photo of bed and stop sign; stop sign is above bed",
-        "a photo of dining table and traffic light; traffic light is below dining table",
-        "a photo of bear and bus; bus is above bear",
+        'a photo of blue bear',
+        'a photo of blue fire hydrant',
+        'a photo of bike and skateboard; skateboard is left to bike',
+        'a photo of bed and human; human is right to bed',
+        'a photo of suitcase and bench; bench is left to suitcase',
+        'a photo of bed and stop sign; stop sign is above bed',
+        'a photo of dining table and traffic light; traffic light is below dining table',
+        'a photo of bear and bus; bus is above bear',
     ]
   elif flag == 5:
     test_batch = [
-        "A green colored rabbit.",
-        "A green colored cat.",
-        "A cat and a cup.",
-        "A cat and a dog.",
-        "Four wolves in the park.",
-        "Four birds in the park.",
-        "A dog on the moon.",
-        "A lion on the moon.",
+        'A green colored rabbit.',
+        'A green colored cat.',
+        'A cat and a cup.',
+        'A cat and a dog.',
+        'Four wolves in the park.',
+        'Four birds in the park.',
+        'A dog on the moon.',
+        'A lion on the moon.',
     ]
   else:
     test_batch = [args.validation_prompt] if args.validation_prompt else []
@@ -149,196 +149,195 @@ def get_test_prompts(args):
 def parse_args():
   parser = argparse.ArgumentParser(description='Simple example of a training script.')
   parser.add_argument(
-    '--pretrained_model_name_or_path',
-    type=str,
-    default='runwayml/stable-diffusion-v1-5',
-    help='Path to pretrained model or model identifier from huggingface.co/models.',
+      '--pretrained_model_name_or_path',
+      type=str,
+      default='runwayml/stable-diffusion-v1-5',
+      help='Path to pretrained model or model identifier from huggingface.co/models.',
   )
   parser.add_argument(
-    "--revision",
-    type=str,
-    default=None,
-    required=False,
-    help="Revision of pretrained model identifier from huggingface.co/models.",
+      '--revision',
+      type=str,
+      default=None,
+      required=False,
+      help='Revision of pretrained model identifier from huggingface.co/models.',
   )
   parser.add_argument(
-    "--dataset_name",
-    type=str,
-    default=None,
-    help=(
-      "The name of the Dataset (from the HuggingFace hub) to train on (could be your own, possibly private,"
-      " dataset). It can also be a path pointing to a local copy of a dataset in your filesystem,"
-      " or to a folder containing files that 🤗 Datasets can understand."
-    ),
+      '--dataset_name',
+      type=str,
+      default=None,
+      help=(
+        'The name of the Dataset (from the HuggingFace hub) to train on (could be your own, possibly private,'
+        ' dataset). It can also be a path pointing to a local copy of a dataset in your filesystem,'
+        ' or to a folder containing files that 🤗 Datasets can understand.'
+      ),
   )
   parser.add_argument(
-    "--dataset_config_name",
-    type=str,
-    default=None,
-    help="The config of the Dataset, leave as None if there's only one config.",
+      '--dataset_config_name',
+      type=str,
+      default=None,
+      help='The config of the Dataset, leave as None if there is only one config.',
   )
   parser.add_argument(
-    "--train_data_dir",
-    type=str,
-    # default="./dataset/single_prompt/A_green_colored_dog._1000/data_meta.json",
-    default='',
-    help=(
-      "A folder containing the training data. Folder contents must follow the structure described in"
-      " https://huggingface.co/docs/datasets/image_dataset#imagefolder. In particular, a `metadata.jsonl` file"
-      " must exist to provide the captions for the images. Ignored if `dataset_name` is specified."
-    ),
+      '--train_data_dir',
+      type=str,
+      default=None,
+      help=(
+          'A folder containing the training data. Folder contents must follow the structure described in'
+          ' https://huggingface.co/docs/datasets/image_dataset#imagefolder. In particular, a `metadata.jsonl` file'
+          ' must exist to provide the captions for the images. Ignored if `dataset_name` is specified.'
+      ),
   )
   parser.add_argument(
-    "--image_column", type=str, default="image", help="The column of the dataset containing an image."
+      '--image_column', type=str, default='image', help='The column of the dataset containing an image.'
   )
   parser.add_argument(
-    "--caption_column",
-    type=str,
-    default="caption",
-    help="The column of the dataset containing a caption or a list of captions.",
+      '--caption_column',
+      type=str,
+      default='caption',
+      help='The column of the dataset containing a caption or a list of captions.',
   )
   parser.add_argument(
-    "--validation_prompt", type=str, default=None, help="A prompt that is sampled during training for inference."
+      '--validation_prompt', type=str, default=None, help='A prompt that is sampled during training for inference.'
   )
   parser.add_argument(
-    "--num_validation_images",
-    type=int,
-    default=1,
-    help="Number of images that should be generated during validation with `validation_prompt`.",
+      '--num_validation_images',
+      type=int,
+      default=1,
+      help='Number of images that should be generated during validation with `validation_prompt`.',
   )
   parser.add_argument(
-    "--validation_steps",
-    type=int,
-    default=100,
-    help=(
-      "Run fine-tuning validation every X global steps. The validation process consists of running the prompt"
-      " `args.validation_prompt` multiple times: `args.num_validation_images`."
-    ),
+      '--validation_steps',
+      type=int,
+      default=100,
+      help=(
+          'Run fine-tuning validation every X global steps. The validation process consists of running the prompt'
+          ' `args.validation_prompt` multiple times: `args.num_validation_images`.'
+      ),
   )
   parser.add_argument(
-    "--max_train_samples",
-    type=int,
-    default=None,
-    help=(
-      "For debugging purposes or quicker training, truncate the number of training examples to this "
-      "value if set."
-    ),
+      '--max_train_samples',
+      type=int,
+      default=None,
+      help=(
+          'For debugging purposes or quicker training, truncate the number of training examples to this '
+          'value if set.'
+      ),
   )
   parser.add_argument(
-    "--output_dir",
-    type=str,
-    default='sft',
-    help="The output directory where the model predictions and checkpoints will be written.",
+      '--output_dir',
+      type=str,
+      default='sft',
+      help='The output directory where the model predictions and checkpoints will be written.',
   )
   parser.add_argument(
-    "--cache_dir",
-    type=str,
-    default=None,
-    help="The directory where the downloaded models and datasets will be stored.",
+      '--cache_dir',
+      type=str,
+      default=None,
+      help='The directory where the downloaded models and datasets will be stored.',
   )
-  parser.add_argument("--seed", type=int, default=42, help="A seed for reproducible training.")
+  parser.add_argument('--seed', type=int, default=42, help='A seed for reproducible training.')
   parser.add_argument(
-    "--resolution",
-    type=int,
-    default=512,
-    help=(
-      "The resolution for input images, all the images in the train/validation dataset will be resized to this"
-      " resolution"
-    ),
-  )
-  parser.add_argument(
-    "--center_crop",
-    type=bool,
-    default=True,
-    help=(
-      "Whether to center crop the input images to the resolution. If not set, the images will be randomly"
-      " cropped. The images will be resized to the resolution first before cropping."
-    ),
+      '--resolution',
+      type=int,
+      default=512,
+      help=(
+          'The resolution for input images, all the images in the train/validation dataset will be resized to this'
+          ' resolution'
+      ),
   )
   parser.add_argument(
-    "--random_flip",
-    type=bool,
-    default=True,
-    help="whether to randomly flip images horizontally",
+      '--center_crop',
+      type=bool,
+      default=True,
+      help=(
+          'Whether to center crop the input images to the resolution. If not set, the images will be randomly'
+          ' cropped. The images will be resized to the resolution first before cropping.'
+      ),
   )
   parser.add_argument(
-    "--train_batch_size", type=int, default=8, help="Batch size (per device) for the training dataloader."
-  )
-  parser.add_argument("--num_train_epochs", type=int, default=100)
-  parser.add_argument(
-    "--max_train_steps",
-    type=int,
-    default=5000,
-    help="Total number of training steps to perform.  If provided, overrides num_train_epochs.",
+      '--random_flip',
+      type=bool,
+      default=True,
+      help='whether to randomly flip images horizontally.',
   )
   parser.add_argument(
-    "--gradient_accumulation_steps",
-    type=int,
-    default=2,
-    help="Number of updates steps to accumulate before performing a backward/update pass.",
+      '--train_batch_size', type=int, default=8, help='Batch size (per device) for the training dataloader.'
+  )
+  parser.add_argument('--num_train_epochs', type=int, default=100)
+  parser.add_argument(
+      '--max_train_steps',
+      type=int,
+      default=5000,
+      help='Total number of training steps to perform.  If provided, overrides num_train_epochs.',
   )
   parser.add_argument(
-    "--gradient_checkpointing",
-    default = True,
-    # action="store_true",
-    help="Whether or not to use gradient checkpointing to save memory at the expense of slower backward pass.",
+      '--gradient_accumulation_steps',
+      type=int,
+      default=2,
+      help='Number of updates steps to accumulate before performing a backward/update pass.',
   )
   parser.add_argument(
-    "--learning_rate",
-    type=float,
-    default=1e-6,
-    help="Initial learning rate (after the potential warmup period) to use.",
+      '--gradient_checkpointing',
+      default=True,
+      help='Whether or not to use gradient checkpointing to save memory at the expense of slower backward pass.',
   )
   parser.add_argument(
-    "--re_thres",
-    type=int,
-    default=0,
-    help="flag for reward filltering",
+      '--learning_rate',
+      type=float,
+      default=1e-6,
+      help='Initial learning rate (after the potential warmup period) to use.',
   )
   parser.add_argument(
-    "--scale_lr",
-    action="store_true",
-    default=False,
-    help="Scale the learning rate by the number of GPUs, gradient accumulation steps, and batch size.",
+      '--re_thres',
+      type=int,
+      default=0,
+      help='Flag for reward filltering',
   )
   parser.add_argument(
-    "--lr_scheduler",
-    type=str,
-    default="constant",
-    help=(
-      'The scheduler type to use. Choose between ["linear", "cosine", "cosine_with_restarts", "polynomial",'
-      ' "constant", "constant_with_warmup"]'
-    ),
+      '--scale_lr',
+      action='store_true',
+      default=False,
+      help='Scale the learning rate by the number of GPUs, gradient accumulation steps, and batch size.',
   )
   parser.add_argument(
-    "--lr_warmup_steps", type=int, default=0, help="Number of steps for the warmup in the lr scheduler."
+      '--lr_scheduler',
+      type=str,
+      default='constant',
+      help=(
+          'The scheduler type to use. Choose between ["linear", "cosine", "cosine_with_restarts", "polynomial",'
+          ' "constant", "constant_with_warmup"]'
+      ),
   )
   parser.add_argument(
-    "--use_8bit_adam", action="store_true", help="Whether or not to use 8-bit Adam from bitsandbytes."
+      '--lr_warmup_steps', type=int, default=0, help='Number of steps for the warmup in the lr scheduler.'
   )
   parser.add_argument(
-    "--allow_tf32",
-    action="store_true",
-    help=(
-      "Whether or not to allow TF32 on Ampere GPUs. Can be used to speed up training. For more information, see"
-      " https://pytorch.org/docs/stable/notes/cuda.html#tensorfloat-32-tf32-on-ampere-devices"
-    ),
+      '--use_8bit_adam', action='store_true', help='Whether or not to use 8-bit Adam from bitsandbytes.'
   )
   parser.add_argument(
-    "--dataloader_num_workers",
-    type=int,
-    default=0,
-    help=(
-      "Number of subprocesses to use for data loading. 0 means that the data will be loaded in the main process."
-    ),
+      '--allow_tf32',
+      action='store_true',
+      help=(
+        'Whether or not to allow TF32 on Ampere GPUs. Can be used to speed up training. For more information, see'
+        ' https://pytorch.org/docs/stable/notes/cuda.html#tensorfloat-32-tf32-on-ampere-devices'
+      ),
   )
-  parser.add_argument("--adam_beta1", type=float, default=0.9, help="The beta1 parameter for the Adam optimizer.")
-  parser.add_argument("--adam_beta2", type=float, default=0.999, help="The beta2 parameter for the Adam optimizer.")
-  parser.add_argument("--adam_weight_decay", type=float, default=1e-2, help="Weight decay to use.")
-  parser.add_argument("--adam_epsilon", type=float, default=1e-08, help="Epsilon value for the Adam optimizer")
-  parser.add_argument("--max_grad_norm", default=1.0, type=float, help="Max gradient norm.")
-  parser.add_argument("--push_to_hub", action="store_true", help="Whether or not to push the model to the Hub.")
-  parser.add_argument("--hub_token", type=str, default=None, help="The token to use to push to the Model Hub.")
+  parser.add_argument(
+      '--dataloader_num_workers',
+      type=int,
+      default=0,
+      help=(
+          'Number of subprocesses to use for data loading. 0 means that the '
+          'data will be loaded in the main process.'
+      ),
+  )
+  parser.add_argument('--adam_beta1', type=float, default=0.9, help='The beta1 parameter for the Adam optimizer.')
+  parser.add_argument('--adam_beta2', type=float, default=0.999, help='The beta2 parameter for the Adam optimizer.')
+  parser.add_argument('--adam_weight_decay', type=float, default=1e-2, help='Weight decay to use.')
+  parser.add_argument('--adam_epsilon', type=float, default=1e-08, help='Epsilon value for the Adam optimizer.')
+  parser.add_argument('--max_grad_norm', default=1.0, type=float, help='Max gradient norm.')
+  parser.add_argument('--push_to_hub', action='store_true', help='Whether or not to push the model to the Hub.')
+  parser.add_argument('--hub_token', type=str, default=None, help='The token to use to push to the Model Hub.')
   parser.add_argument(
       '--hub_model_id',
       type=str,
@@ -375,9 +374,9 @@ def parse_args():
       type=str,
       default='tensorboard',
       help=(
-        'The integration to report the results and logs to. Supported platforms '
-        'are `"tensorboard"` (default), `"wandb"` and `"comet_ml"`. Use `"all"` '
-        'to report to all integrations.'
+          'The integration to report the results and logs to. Supported platforms '
+          'are `"tensorboard"` (default), `"wandb"` and `"comet_ml"`. Use `"all"` '
+          'to report to all integrations.'
       ),
   )
   parser.add_argument('--local_rank', type=int, default=-1,
@@ -628,14 +627,14 @@ def main():
   # Set correct lora layers
   lora_attn_procs = {}
   for name in unet.attn_processors.keys():
-    cross_attention_dim = None if name.endswith("attn1.processor") else unet.config.cross_attention_dim
-    if name.startswith("mid_block"):
+    cross_attention_dim = None if name.endswith('attn1.processor') else unet.config.cross_attention_dim
+    if name.startswith('mid_block'):
       hidden_size = unet.config.block_out_channels[-1]
-    elif name.startswith("up_blocks"):
-      block_id = int(name[len("up_blocks.")])
+    elif name.startswith('up_blocks'):
+      block_id = int(name[len('up_blocks.')])
       hidden_size = list(reversed(unet.config.block_out_channels))[block_id]
-    elif name.startswith("down_blocks"):
-      block_id = int(name[len("down_blocks.")])
+    elif name.startswith('down_blocks'):
+      block_id = int(name[len('down_blocks.')])
       hidden_size = unet.config.block_out_channels[block_id]
     # TODO(kykim): LoRAAttnProcessor?
     lora_attn_procs[name] = LoRACrossAttnProcessor(
@@ -663,7 +662,6 @@ def main():
       raise ImportError(
          'Please install bitsandbytes to use 8-bit Adam. You can do so by running `pip install bitsandbytes`'
       )
-
     optimizer_cls = bnb.optim.AdamW8bit
   else:
     optimizer_cls = torch.optim.AdamW
@@ -757,7 +755,7 @@ def main():
     images = [image.convert('RGB') for image in examples[image_column]]
     examples['pixel_values'] = [train_transforms(image) for image in images]
     examples['input_ids'] = tokenize_captions(examples)
-    examples['weights'] = [-1.0 * float(w) for w in examples[reward_column]]
+    examples['weights'] = [float(w) for w in examples[reward_column]]
     return examples
 
   with accelerator.main_process_first():
@@ -776,17 +774,18 @@ def main():
 
   # DataLoaders creation:
   train_dataloader = torch.utils.data.DataLoader(
-    train_dataset,
-    shuffle=True,
-    collate_fn=collate_fn,
-    batch_size=args.train_batch_size,
-    num_workers=args.dataloader_num_workers,
-    drop_last=True,
+      train_dataset,
+      shuffle=True,
+      collate_fn=collate_fn,
+      batch_size=args.train_batch_size,
+      num_workers=args.dataloader_num_workers,
+      drop_last=True,
   )
 
   # Scheduler and math around the number of training steps.
   overrode_max_train_steps = False
-  num_update_steps_per_epoch = math.ceil(len(train_dataloader) / args.gradient_accumulation_steps)
+  num_update_steps_per_epoch = math.ceil(
+      len(train_dataloader) / args.gradient_accumulation_steps)
   if args.max_train_steps is None:
     args.max_train_steps = args.num_train_epochs * num_update_steps_per_epoch
     overrode_max_train_steps = True
@@ -861,7 +860,8 @@ def main():
       resume_step = resume_global_step % (num_update_steps_per_epoch * args.gradient_accumulation_steps)
 
   # Only show the progress bar once on each machine.
-  progress_bar = tqdm(range(global_step, args.max_train_steps), disable=not accelerator.is_local_main_process)
+  progress_bar = tqdm(range(global_step, args.max_train_steps),
+                      disable=not accelerator.is_local_main_process)
   progress_bar.set_description('Steps')
 
   def calculate_reward(image_pil, prompts):
