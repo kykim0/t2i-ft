@@ -5,12 +5,12 @@ from tifascore.vqa_models import VQAModel
 from tqdm.auto import tqdm
 
 
-def vqa_rewards(captions, images, cqas):
+def vqa_rewards(captions, images, cqas, vqa_model=None):
   """Returns VQA-based rewards."""
-  vqa_model = VQAModel('mplug-large')
+  vqa_model = vqa_model or VQAModel('mplug-large')
 
   rewards = []
-  for caption, image in tqdm(zip(captions, images)):
+  for caption, image in zip(captions, images):
     if caption not in cqas:
       print(f'Caption "{caption}" not found.')
       continue
