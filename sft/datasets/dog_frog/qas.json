@@ -1,0 +1,68 @@
+{
+    "a realistic photo of a dog and a frog": [
+        {
+            "caption": "a realistic photo of a dog and a frog",
+            "question": "are there dogs in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "dog",
+                "frog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a dog and a frog",
+            "question": "how many dogs are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "dog",
+                "frog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a dog and a frog",
+            "question": "are there frogs in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "dog",
+                "frog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a dog and a frog",
+            "question": "how many frogs are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "dog",
+                "frog"
+            ]
+        }
+    ]
+}
