@@ -1,0 +1,68 @@
+{
+    "a realistic photo of a deer and a truck": [
+        {
+            "caption": "a realistic photo of a deer and a truck",
+            "question": "are there deer in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "deer",
+                "truck"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a deer and a truck",
+            "question": "how many deer are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "deer",
+                "truck"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a deer and a truck",
+            "question": "are there trucks in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "deer",
+                "truck"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a deer and a truck",
+            "question": "how many trucks are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "deer",
+                "truck"
+            ]
+        }
+    ]
+}
