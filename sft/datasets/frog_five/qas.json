@@ -1,0 +1,34 @@
+{
+    "a realistic photo of five frogs": [
+        {
+            "caption": "a realistic photo of five frogs",
+            "question": "are there frogs in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "frog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of five frogs",
+            "question": "how many frogs are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+            ],
+            "answer": "5",
+            "element_type": "count",
+            "objects": [
+                "frog"
+            ]
+        }
+    ]
+}
