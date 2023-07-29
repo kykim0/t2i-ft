@@ -29,7 +29,9 @@ def parse_args():
   # Be sure to adjust it depending on the no. of processes and images.
   parser.add_argument('--per_batch_size', type=int, default=16)
   parser.add_argument('--model_id', type=str,
-                      default='runwayml/stable-diffusion-v1-5')
+                      default='stabilityai/stable-diffusion-2-1')
+  parser.add_argument('--metadata_filename', type=str,
+                      default='sft_train_data.json')
   args = parser.parse_args()
   return args
 
@@ -88,13 +90,16 @@ def generate_images(args, all_captions, c_to_idx):
 def compute_rewards(args, captions, images, cqas):
   """Computes rewards and returns the final data dict."""
   images_paths = [os.path.join(args.basedir, 'images', img) for img in images]
-  all_rewards = rewards.vqa_rewards(captions, images_paths, cqas)
+  vqa_rs = rewards.vqa_rewards(captions, images_paths, cqas)
   final_data_dicts = []
-  for caption, image, reward in zip(captions, images, all_rewards):
+  for caption, image, vqa_r in zip(captions, images, vqa_rs):
     final_data_dicts.append({
-      'image': image,
-      'caption': caption,
-      'reward': reward,
+        'image': image,
+        'caption': caption,
+        'rewards': {
+            'human': -1,   # Initialize human label as -1.
+            'vqa': vqa_r,
+        }
     })
   return final_data_dicts
 
@@ -123,7 +128,7 @@ def main():
     captions.append(caption)
   data_dicts = compute_rewards(args, captions, images, cqas)
 
-  with open(os.path.join(args.basedir, 'sft_train_data.json'), 'w') as f:
+  with open(os.path.join(args.basedir, args.metadata_filename), 'w') as f:
     json.dump(data_dicts, f, indent=4)
 
 
