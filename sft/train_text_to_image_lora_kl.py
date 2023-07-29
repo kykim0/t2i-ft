@@ -151,7 +151,8 @@ def parse_args():
   parser.add_argument(
       '--pretrained_model_name_or_path',
       type=str,
-      default='runwayml/stable-diffusion-v1-5',
+      # default='runwayml/stable-diffusion-v1-5',
+      default='stabilityai/stable-diffusion-2-1',
       help='Path to pretrained model or model identifier from huggingface.co/models.',
   )
   parser.add_argument(
@@ -186,6 +187,12 @@ def parse_args():
           ' https://huggingface.co/docs/datasets/image_dataset#imagefolder. In particular, a `metadata.jsonl` file'
           ' must exist to provide the captions for the images. Ignored if `dataset_name` is specified.'
       ),
+  )
+  parser.add_argument(
+      '--train_metadata_filename',
+      type=str,
+      default='sft_train_data.json',
+      help='The name of the json file of training data info.',
   )
   parser.add_argument(
       '--image_column', type=str, default='image', help='The column of the dataset containing an image.'
@@ -534,16 +541,16 @@ def main():
       project_dir=logging_dir,
       project_config=accelerator_project_config,
   )
-  if args.report_to == "wandb":
+  if args.report_to == 'wandb':
     if not is_wandb_available():
-      raise ImportError("Make sure to install wandb if you want to use it for logging during training.")
+      raise ImportError('Make sure to install wandb if you want to use it for logging during training.')
     import wandb
 
   # Make one log on every process with the configuration for debugging.
   logging.basicConfig(
-    format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
-    datefmt="%m/%d/%Y %H:%M:%S",
-    level=logging.INFO,
+      format='%(asctime)s - %(levelname)s - %(name)s - %(message)s',
+      datefmt='%m/%d/%Y %H:%M:%S',
+      level=logging.INFO,
   )
   logger.info(accelerator.state, main_process_only=False)
   if accelerator.is_local_main_process:
@@ -565,18 +572,18 @@ def main():
       os.makedirs(args.output_dir, exist_ok=True)
 
   # Load scheduler, tokenizer and models.
-  noise_scheduler = DDPMScheduler.from_pretrained(args.pretrained_model_name_or_path, subfolder="scheduler")
+  noise_scheduler = DDPMScheduler.from_pretrained(args.pretrained_model_name_or_path, subfolder='scheduler')
   tokenizer = CLIPTokenizer.from_pretrained(
-    args.pretrained_model_name_or_path, subfolder="tokenizer", revision=args.revision
+    args.pretrained_model_name_or_path, subfolder='tokenizer', revision=args.revision
   )
   text_encoder = CLIPTextModel.from_pretrained(
-    args.pretrained_model_name_or_path, subfolder="text_encoder", revision=args.revision
+    args.pretrained_model_name_or_path, subfolder='text_encoder', revision=args.revision
   )
-  vae = AutoencoderKL.from_pretrained(args.pretrained_model_name_or_path, subfolder="vae", revision=args.revision)
+  vae = AutoencoderKL.from_pretrained(args.pretrained_model_name_or_path, subfolder='vae', revision=args.revision)
   unet = UNet2DConditionModel.from_pretrained(
-    args.pretrained_model_name_or_path, subfolder="unet", revision=args.revision
+    args.pretrained_model_name_or_path, subfolder='unet', revision=args.revision
   )
-  # image_reward = imagereward.load("ImageReward-v1.0", download_root=args.path_imagereward)
+  # image_reward = imagereward.load('ImageReward-v1.0', download_root=args.path_imagereward)
 
   # Freeze parameters of models to save more memory.
   unet.requires_grad_(False)
@@ -603,13 +610,13 @@ def main():
       import xformers
 
       xformers_version = version.parse(xformers.__version__)
-      if xformers_version == version.parse("0.0.16"):
+      if xformers_version == version.parse('0.0.16'):
         logger.warn(
-          "xFormers 0.0.16 cannot be used for training in some GPUs. If you observe problems during training, please update xFormers to at least 0.0.17. See https://huggingface.co/docs/diffusers/main/en/optimization/xformers for more details."
+            'xFormers 0.0.16 cannot be used for training in some GPUs. If you observe problems during training, please update xFormers to at least 0.0.17. See https://huggingface.co/docs/diffusers/main/en/optimization/xformers for more details.'
         )
       unet.enable_xformers_memory_efficient_attention()
     else:
-      raise ValueError("xformers is not available. Make sure it is installed correctly")
+      raise ValueError('xformers is not available. Make sure it is installed correctly')
 
   # Now we will add new LoRA weights to the attention layers.
   # It's important to realize here how many attention weights will be added and of which sizes
@@ -651,7 +658,8 @@ def main():
 
   if args.scale_lr:
     args.learning_rate = (
-      args.learning_rate * args.gradient_accumulation_steps * args.train_batch_size * accelerator.num_processes
+        args.learning_rate * args.gradient_accumulation_steps *
+        args.train_batch_size * accelerator.num_processes
     )
 
   # Initialize the optimizer
@@ -693,17 +701,18 @@ def main():
     )
   else:
     basedir = args.train_data_dir
-    train_file = os.path.join(basedir, 'sft_train_data.json')
+    train_file = os.path.join(basedir, args.train_metadata_filename)
     with open(train_file) as json_file:
       data_dicts = json.load(json_file)
 
     # Filtering.
     train_dict = {'images': [], 'captions': [], 'rewards': []}
     for data_dict in data_dicts:
-      reward = data_dict['reward'] + args.kl_coeff
+      reward = data_dict['rewards']['vqa']
+      # reward = data_dict['rewards']['human']
       image_fn = os.path.join(basedir, 'images', data_dict['image'])
-      if args.weak_flag == 1:
-        reward = data_dict['reward']
+      if args.weak_flag == 0:
+        reward += args.kl_coeff
 
       if args.re_thres == 0:
         train_dict['images'].append(image_fn)
