@@ -1,0 +1,34 @@
+{
+    "a realistic photo of five trucks": [
+        {
+            "caption": "a realistic photo of five trucks",
+            "question": "are there trucks in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "truck"
+            ]
+        },
+        {
+            "caption": "a realistic photo of five trucks",
+            "question": "how many trucks are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+            ],
+            "answer": "5",
+            "element_type": "count",
+            "objects": [
+                "truck"
+            ]
+        }
+    ]
+}
