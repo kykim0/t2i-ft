@@ -3,7 +3,7 @@
         "image": "image_0_0.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -11,7 +11,7 @@
         "image": "image_0_1.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -19,7 +19,7 @@
         "image": "image_0_2.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -27,7 +27,7 @@
         "image": "image_0_3.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -35,7 +35,7 @@
         "image": "image_0_4.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -43,7 +43,7 @@
         "image": "image_0_5.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 0.75
         }
     },
@@ -51,7 +51,7 @@
         "image": "image_0_6.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 1.0
         }
     },
@@ -59,7 +59,7 @@
         "image": "image_0_7.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 1.0
         }
     },
@@ -67,7 +67,7 @@
         "image": "image_0_8.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -75,7 +75,7 @@
         "image": "image_0_9.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 0.75
         }
     },
@@ -83,7 +83,7 @@
         "image": "image_0_10.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 0.75
         }
     },
@@ -91,7 +91,7 @@
         "image": "image_0_11.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -99,7 +99,7 @@
         "image": "image_0_12.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -107,7 +107,7 @@
         "image": "image_0_13.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -115,7 +115,7 @@
         "image": "image_0_14.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -123,7 +123,7 @@
         "image": "image_0_15.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 0.75
         }
     },
@@ -131,7 +131,7 @@
         "image": "image_0_16.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -139,7 +139,7 @@
         "image": "image_0_17.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -147,7 +147,7 @@
         "image": "image_0_18.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -155,7 +155,7 @@
         "image": "image_0_19.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 0.75
         }
     },
@@ -163,7 +163,7 @@
         "image": "image_0_20.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 1.0
         }
     },
@@ -171,7 +171,7 @@
         "image": "image_0_21.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 1.0
         }
     },
@@ -179,7 +179,7 @@
         "image": "image_0_22.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -187,7 +187,7 @@
         "image": "image_0_23.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 1.0
         }
     },
@@ -195,7 +195,7 @@
         "image": "image_0_24.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 1.0
         }
     },
@@ -203,7 +203,7 @@
         "image": "image_0_25.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 0.75
         }
     },
@@ -211,7 +211,7 @@
         "image": "image_0_26.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 0.25
         }
     },
@@ -219,7 +219,7 @@
         "image": "image_0_27.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -227,7 +227,7 @@
         "image": "image_0_28.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 0.75
         }
     },
@@ -235,7 +235,7 @@
         "image": "image_0_29.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 0.75
         }
     },
@@ -243,7 +243,7 @@
         "image": "image_0_30.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -251,7 +251,7 @@
         "image": "image_0_31.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 0.75
         }
     },
@@ -259,7 +259,7 @@
         "image": "image_0_32.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -267,7 +267,7 @@
         "image": "image_0_33.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -275,7 +275,7 @@
         "image": "image_0_34.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -283,7 +283,7 @@
         "image": "image_0_35.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -291,7 +291,7 @@
         "image": "image_0_36.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 1.0
         }
     },
@@ -299,7 +299,7 @@
         "image": "image_0_37.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 0.75
         }
     },
@@ -307,7 +307,7 @@
         "image": "image_0_38.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 1.0
         }
     },
@@ -315,7 +315,7 @@
         "image": "image_0_39.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -323,7 +323,7 @@
         "image": "image_0_40.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -331,7 +331,7 @@
         "image": "image_0_41.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 1.0
         }
     },
@@ -339,7 +339,7 @@
         "image": "image_0_42.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -347,7 +347,7 @@
         "image": "image_0_43.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 1.0
         }
     },
@@ -355,7 +355,7 @@
         "image": "image_0_44.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 0.75
         }
     },
@@ -363,7 +363,7 @@
         "image": "image_0_45.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -371,7 +371,7 @@
         "image": "image_0_46.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 0.75
         }
     },
@@ -379,7 +379,7 @@
         "image": "image_0_47.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 1.0
         }
     },
@@ -387,7 +387,7 @@
         "image": "image_0_48.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 1.0
         }
     },
@@ -395,7 +395,7 @@
         "image": "image_0_49.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 1.0
         }
     },
@@ -403,7 +403,7 @@
         "image": "image_0_50.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -411,7 +411,7 @@
         "image": "image_0_51.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -419,7 +419,7 @@
         "image": "image_0_52.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -427,7 +427,7 @@
         "image": "image_0_53.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 0.75
         }
     },
@@ -435,7 +435,7 @@
         "image": "image_0_54.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -443,7 +443,7 @@
         "image": "image_0_55.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 1.0
         }
     },
@@ -451,7 +451,7 @@
         "image": "image_0_56.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 1.0
         }
     },
@@ -459,7 +459,7 @@
         "image": "image_0_57.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -467,7 +467,7 @@
         "image": "image_0_58.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -475,7 +475,7 @@
         "image": "image_0_59.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -483,7 +483,7 @@
         "image": "image_0_60.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -491,7 +491,7 @@
         "image": "image_0_61.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 0.75
         }
     },
@@ -499,7 +499,7 @@
         "image": "image_0_62.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 1.0
         }
     },
@@ -507,7 +507,7 @@
         "image": "image_0_63.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 0.75
         }
     },
@@ -515,7 +515,7 @@
         "image": "image_0_64.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -523,7 +523,7 @@
         "image": "image_0_65.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 1.0
         }
     },
@@ -531,7 +531,7 @@
         "image": "image_0_66.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -539,7 +539,7 @@
         "image": "image_0_67.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -547,7 +547,7 @@
         "image": "image_0_68.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 1.0
         }
     },
@@ -555,7 +555,7 @@
         "image": "image_0_69.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -563,7 +563,7 @@
         "image": "image_0_70.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 1.0
         }
     },
@@ -571,7 +571,7 @@
         "image": "image_0_71.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 0.75
         }
     },
@@ -579,7 +579,7 @@
         "image": "image_0_72.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 1.0
         }
     },
@@ -587,7 +587,7 @@
         "image": "image_0_73.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -595,7 +595,7 @@
         "image": "image_0_74.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 0.75
         }
     },
@@ -603,7 +603,7 @@
         "image": "image_0_75.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 1.0
         }
     },
@@ -611,7 +611,7 @@
         "image": "image_0_76.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 0.75
         }
     },
@@ -619,7 +619,7 @@
         "image": "image_0_77.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -627,7 +627,7 @@
         "image": "image_0_78.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 0.75
         }
     },
@@ -635,7 +635,7 @@
         "image": "image_0_79.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -643,7 +643,7 @@
         "image": "image_0_80.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 0.75
         }
     },
@@ -651,7 +651,7 @@
         "image": "image_0_81.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -659,7 +659,7 @@
         "image": "image_0_82.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 0.75
         }
     },
@@ -667,7 +667,7 @@
         "image": "image_0_83.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 1.0
         }
     },
@@ -675,7 +675,7 @@
         "image": "image_0_84.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -683,7 +683,7 @@
         "image": "image_0_85.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 1.0
         }
     },
@@ -691,7 +691,7 @@
         "image": "image_0_86.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -699,7 +699,7 @@
         "image": "image_0_87.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -707,7 +707,7 @@
         "image": "image_0_88.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 0.75
         }
     },
@@ -715,7 +715,7 @@
         "image": "image_0_89.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 1.0
         }
     },
@@ -723,7 +723,7 @@
         "image": "image_0_90.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -731,7 +731,7 @@
         "image": "image_0_91.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -739,7 +739,7 @@
         "image": "image_0_92.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -747,7 +747,7 @@
         "image": "image_0_93.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 0.75
         }
     },
@@ -755,7 +755,7 @@
         "image": "image_0_94.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 0.75
         }
     },
@@ -763,7 +763,7 @@
         "image": "image_0_95.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -771,7 +771,7 @@
         "image": "image_0_96.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
@@ -779,7 +779,7 @@
         "image": "image_0_97.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 0.75
         }
     },
@@ -787,7 +787,7 @@
         "image": "image_0_98.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 0,
             "vqa": 1.0
         }
     },
@@ -795,7 +795,7 @@
         "image": "image_0_99.png",
         "caption": "a realistic photo of a deer and a truck",
         "rewards": {
-            "human": -1,
+            "human": 1,
             "vqa": 1.0
         }
     },
