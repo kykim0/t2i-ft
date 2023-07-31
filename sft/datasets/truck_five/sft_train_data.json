@@ -28,7 +28,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": 0,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -780,7 +780,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": 0,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -996,7 +996,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -1204,7 +1204,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -1260,7 +1260,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -1716,7 +1716,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -1756,7 +1756,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -1916,7 +1916,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -2212,7 +2212,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -2644,7 +2644,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -2892,7 +2892,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -3060,7 +3060,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -3148,7 +3148,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -3580,7 +3580,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -3692,7 +3692,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -4204,7 +4204,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -4212,7 +4212,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -4596,7 +4596,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -4644,7 +4644,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -4980,7 +4980,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -5004,7 +5004,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -5316,7 +5316,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -5628,7 +5628,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -5692,7 +5692,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -5964,7 +5964,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -6028,7 +6028,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -6476,7 +6476,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -6484,7 +6484,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -6524,7 +6524,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -6628,7 +6628,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -6796,7 +6796,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -7228,7 +7228,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -7252,7 +7252,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -7484,7 +7484,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -7948,7 +7948,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -7964,7 +7964,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -7972,7 +7972,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -7988,7 +7988,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -8236,7 +8236,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -8420,7 +8420,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -8452,7 +8452,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -8644,7 +8644,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -8668,7 +8668,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -8772,7 +8772,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -8860,7 +8860,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -9116,7 +9116,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -9276,7 +9276,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -9796,7 +9796,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -9884,7 +9884,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -9948,7 +9948,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -10044,7 +10044,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -10292,7 +10292,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -10380,7 +10380,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -10388,7 +10388,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -10452,7 +10452,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -10484,7 +10484,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -10988,7 +10988,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -11428,7 +11428,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -11636,7 +11636,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -12276,7 +12276,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -12356,7 +12356,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -12500,7 +12500,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -13052,7 +13052,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -13180,7 +13180,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -13252,7 +13252,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -13764,7 +13764,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -14268,7 +14268,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -14644,7 +14644,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -14836,7 +14836,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -14972,7 +14972,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -15444,7 +15444,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -15916,7 +15916,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -16228,7 +16228,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -16468,7 +16468,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -17084,7 +17084,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -17196,7 +17196,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -17380,7 +17380,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -17764,7 +17764,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -18140,7 +18140,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -18436,7 +18436,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -18588,7 +18588,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -19036,7 +19036,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -19572,7 +19572,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -19732,7 +19732,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -19796,7 +19796,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -19836,7 +19836,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -19892,7 +19892,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -20060,7 +20060,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -20564,7 +20564,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -20588,7 +20588,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -20876,7 +20876,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -21052,7 +21052,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -21164,7 +21164,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -21180,7 +21180,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -21188,7 +21188,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -21196,7 +21196,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -21300,7 +21300,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -21316,7 +21316,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -21324,7 +21324,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -21420,7 +21420,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -21476,7 +21476,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -21748,7 +21748,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -21796,7 +21796,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -21892,7 +21892,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -21924,7 +21924,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -22332,7 +22332,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -22660,7 +22660,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -22852,7 +22852,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -23012,7 +23012,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -23300,7 +23300,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -23420,7 +23420,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -23628,7 +23628,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -23764,7 +23764,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -23772,7 +23772,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -24076,7 +24076,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -24180,7 +24180,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -24284,7 +24284,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -24484,7 +24484,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -24492,7 +24492,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -24564,7 +24564,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -24828,7 +24828,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -25164,7 +25164,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -25364,7 +25364,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -26060,7 +26060,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -26276,7 +26276,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -26708,7 +26708,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -27156,7 +27156,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -27188,7 +27188,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -27636,7 +27636,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -27916,7 +27916,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -28052,7 +28052,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -28508,7 +28508,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -28588,7 +28588,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -28644,7 +28644,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -29172,7 +29172,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -29388,7 +29388,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -29500,7 +29500,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -29612,7 +29612,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -29620,7 +29620,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -29732,7 +29732,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -31012,7 +31012,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -32540,7 +32540,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -32572,7 +32572,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -32804,7 +32804,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -32844,7 +32844,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -33196,7 +33196,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -33460,7 +33460,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -33500,7 +33500,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -33572,7 +33572,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -33708,7 +33708,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -33756,7 +33756,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -33900,7 +33900,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -34020,7 +34020,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -34204,7 +34204,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -34236,7 +34236,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -34332,7 +34332,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -36204,7 +36204,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -36260,7 +36260,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -36452,7 +36452,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -36668,7 +36668,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -37028,7 +37028,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -37820,7 +37820,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -37908,7 +37908,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -37988,7 +37988,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -38252,7 +38252,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -38340,7 +38340,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -38540,7 +38540,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -38596,7 +38596,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -38716,7 +38716,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -39148,7 +39148,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -39220,7 +39220,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -39428,7 +39428,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -39732,7 +39732,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -39812,7 +39812,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -40244,7 +40244,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -40388,7 +40388,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -40604,7 +40604,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -40700,7 +40700,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -40916,7 +40916,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -40988,7 +40988,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -41052,7 +41052,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -41124,7 +41124,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -41228,7 +41228,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -41460,7 +41460,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -41708,7 +41708,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -41788,7 +41788,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -41844,7 +41844,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -41916,7 +41916,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -42108,7 +42108,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -42300,7 +42300,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -42524,7 +42524,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -42540,7 +42540,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -42788,7 +42788,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -43132,7 +43132,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -43188,7 +43188,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -43300,7 +43300,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -43596,7 +43596,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -43940,7 +43940,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -44076,7 +44076,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -44604,7 +44604,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -44828,7 +44828,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -44900,7 +44900,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -44924,7 +44924,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -44956,7 +44956,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -44980,7 +44980,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -45292,7 +45292,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -45556,7 +45556,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -45628,7 +45628,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -45772,7 +45772,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -45828,7 +45828,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -46100,7 +46100,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -46220,7 +46220,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -46268,7 +46268,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -46276,7 +46276,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -47012,7 +47012,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -47420,7 +47420,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -47604,7 +47604,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -47644,7 +47644,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -47796,7 +47796,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -47812,7 +47812,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -47892,7 +47892,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -48052,7 +48052,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -48116,7 +48116,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -48276,7 +48276,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -48356,7 +48356,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -48500,7 +48500,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -48524,7 +48524,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -48780,7 +48780,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -48860,7 +48860,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -49092,7 +49092,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -49124,7 +49124,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -49316,7 +49316,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -49380,7 +49380,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -49956,7 +49956,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -50268,7 +50268,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -50548,7 +50548,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -50780,7 +50780,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -50908,7 +50908,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -51340,7 +51340,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -51668,7 +51668,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -51876,7 +51876,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -52060,7 +52060,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -52156,7 +52156,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -52324,7 +52324,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -52508,7 +52508,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -52684,7 +52684,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -52796,7 +52796,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -53180,7 +53180,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -53716,7 +53716,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -54324,7 +54324,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -54684,7 +54684,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -54932,7 +54932,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -55068,7 +55068,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -55084,7 +55084,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -55132,7 +55132,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -55292,7 +55292,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -55932,7 +55932,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -56100,7 +56100,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -56188,7 +56188,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -56316,7 +56316,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -56356,7 +56356,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -56604,7 +56604,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -56788,7 +56788,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -56860,7 +56860,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -57012,7 +57012,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -57244,7 +57244,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -57308,7 +57308,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -57572,7 +57572,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -58052,7 +58052,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -58156,7 +58156,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -58204,7 +58204,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -58340,7 +58340,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -58524,7 +58524,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -58836,7 +58836,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -59092,7 +59092,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -59332,7 +59332,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -59548,7 +59548,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -59828,7 +59828,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -59988,7 +59988,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -60036,7 +60036,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -60140,7 +60140,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -60196,7 +60196,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -60300,7 +60300,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -60716,7 +60716,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -60828,7 +60828,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -60868,7 +60868,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -60980,7 +60980,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -61260,7 +61260,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -61780,7 +61780,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -62236,7 +62236,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -62276,7 +62276,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -62484,7 +62484,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -62524,7 +62524,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -62628,7 +62628,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -62636,7 +62636,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -62772,7 +62772,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -63068,7 +63068,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -63284,7 +63284,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -64132,7 +64132,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -64580,7 +64580,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -64924,7 +64924,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -65172,7 +65172,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -65436,7 +65436,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -65684,7 +65684,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -65972,7 +65972,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -66052,7 +66052,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -66092,7 +66092,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -66204,7 +66204,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -66308,7 +66308,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -66468,7 +66468,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -66492,7 +66492,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -66676,7 +66676,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -66748,7 +66748,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -66836,7 +66836,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -67060,7 +67060,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -67572,7 +67572,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -67708,7 +67708,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -67772,7 +67772,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -68532,7 +68532,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -68772,7 +68772,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -68788,7 +68788,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -68964,7 +68964,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -69124,7 +69124,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -69332,7 +69332,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -69548,7 +69548,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -69780,7 +69780,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -69796,7 +69796,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -69836,7 +69836,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -70004,7 +70004,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -70196,7 +70196,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -70236,7 +70236,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -70820,7 +70820,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -70980,7 +70980,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -71172,7 +71172,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -71772,7 +71772,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -71924,7 +71924,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -72060,7 +72060,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -72108,7 +72108,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -72308,7 +72308,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -72564,7 +72564,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -72700,7 +72700,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -72772,7 +72772,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -73020,7 +73020,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -73524,7 +73524,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -73636,7 +73636,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -73788,7 +73788,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -73892,7 +73892,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -73900,7 +73900,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -74140,7 +74140,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -74556,7 +74556,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -74668,7 +74668,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -74908,7 +74908,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -74972,7 +74972,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -75004,7 +75004,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -75340,7 +75340,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -75708,7 +75708,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -75836,7 +75836,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -76516,7 +76516,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -77244,7 +77244,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -77428,7 +77428,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -77612,7 +77612,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -78172,7 +78172,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -78244,7 +78244,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -78452,7 +78452,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -78508,7 +78508,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -78604,7 +78604,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -78612,7 +78612,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -79060,7 +79060,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -79652,7 +79652,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -79676,7 +79676,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -79780,7 +79780,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -79804,7 +79804,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
@@ -79860,7 +79860,7 @@
         "caption": "a realistic photo of five trucks",
         "rewards": {
             "human": -1,
-            "vqa": 1.0
+            "vqa": 0.5
         }
     },
     {
