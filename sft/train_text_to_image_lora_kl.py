@@ -195,6 +195,12 @@ def parse_args():
       help='The name of the json file of training data info.',
   )
   parser.add_argument(
+      '--train_metadata_limit',
+      type=int,
+      default=None,
+      help='If provided, take this many samples from the metadata.',
+  )
+  parser.add_argument(
       '--image_column', type=str, default='image', help='The column of the dataset containing an image.'
   )
   parser.add_argument(
@@ -295,10 +301,10 @@ def parse_args():
       help='Initial learning rate (after the potential warmup period) to use.',
   )
   parser.add_argument(
-      '--re_thres',
-      type=int,
-      default=0,
-      help='Flag for reward filltering',
+      '--r_threshold',
+      type=float,
+      default=None,
+      help='Filter examples with reward less than this threshold, if set.',
   )
   parser.add_argument(
       '--scale_lr',
@@ -427,7 +433,6 @@ def parse_args():
       help='Whether or not to use xformers.',
   )
   parser.add_argument('--multi_flag', type=int, default=0)
-  parser.add_argument('--weak_flag', type=int, default=1)
   parser.add_argument(
       '--tracker_project_name',
       type=str,
@@ -472,7 +477,10 @@ DATASET_NAME_MAPPING = {
 }
 
 
+# TODO(kykim): Support multi-GPU inference.
 def inference(args, accelerator, unet, weight_dtype, test_batch, global_step):
+  num_images = args.num_validation_images
+
   # Create pipeline.
   pipeline = DiffusionPipeline.from_pretrained(
       args.pretrained_model_name_or_path,
@@ -492,40 +500,42 @@ def inference(args, accelerator, unet, weight_dtype, test_batch, global_step):
     )
 
     # Run inference.
-    images, test_scores = [], []
-    for iidx in range(args.num_validation_images):
-      images.append(
-        pipeline(validation_prompt, num_inference_steps=50, generator=generator).images[0]
+    images = []
+    batch_size = 1
+    num_chuncks = (num_images + batch_size - 1) // batch_size
+    for iidx in range(num_chuncks):
+      sub_num_images = min(batch_size, num_images - iidx * batch_size)
+      prompts = [validation_prompt] * sub_num_images
+      images.extend(
+          pipeline(prompts, num_inference_steps=50, generator=generator).images
       )
+
+    test_scores = []
+    for iidx, image in enumerate(images):
       filename = os.path.join(args.output_dir, 'inference',
                               f'test_{global_step}_{tidx}_{iidx}.png')
-      images[-1].save(filename)
-      # score = calculate_reward(
-      #     images[-1], validation_prompt)
+      image.save(filename)
+      # score = calculate_reward(image, validation_prompt)
       # test_scores.append(score.item())
     # accelerator.log({
-    #     f"test_reward_{tidx}": np.mean(test_scores)}, step=global_step)
+    #     f'test_reward_{tidx}': np.mean(test_scores)}, step=global_step)
     # tot_reward.append(np.mean(test_scores))
   del pipeline
   torch.cuda.empty_cache()
-  # accelerator.log({
-  #     "tot_test_reward": np.mean(tot_reward)}, step=global_step)
+  # accelerator.log({'tot_test_reward': np.mean(tot_reward)}, step=global_step)
 
 
 def main():
   args = parse_args()
   # Set log_dir.
   data_dir = os.path.basename(args.train_data_dir)
-  # prefix = '/loRA_KL_v2/' + data_dir + "_th" + str(args.re_thres)
-  # prefix = data_dir #+ '_th' + str(args.re_thres)
-  # args.output_dir += data_dir #'_' + prefix
   args.output_dir += '/b' + str(args.train_batch_size)
   args.output_dir += '_a' + str(args.gradient_accumulation_steps)
   args.output_dir += '_lr' + str(args.learning_rate)
   args.output_dir += '_kl' + str(args.kl_coeff)
+  if args.r_threshold:
+    args.output_dir += '_rt' + str(args.r_threshold)
   args.output_dir += '_max' + str(args.max_train_steps)
-  if args.weak_flag == 1:
-    args.output_dir += '_weak'
 
   logging_dir = os.path.join(args.output_dir, args.logging_dir)
   mkdir_p(os.path.join(args.output_dir, 'checkpoint'))
@@ -645,7 +655,7 @@ def main():
       hidden_size = unet.config.block_out_channels[block_id]
     # TODO(kykim): LoRAAttnProcessor?
     lora_attn_procs[name] = LoRACrossAttnProcessor(
-      hidden_size=hidden_size, cross_attention_dim=cross_attention_dim
+        hidden_size=hidden_size, cross_attention_dim=cross_attention_dim
     )
 
   unet.set_attn_processor(lora_attn_procs)
@@ -704,6 +714,8 @@ def main():
     train_file = os.path.join(basedir, args.train_metadata_filename)
     with open(train_file) as json_file:
       data_dicts = json.load(json_file)
+      if args.train_metadata_limit:
+        data_dicts = data_dicts[:args.train_metadata_limit]
 
     # Filtering.
     train_dict = {'images': [], 'captions': [], 'rewards': []}
@@ -711,20 +723,13 @@ def main():
       reward = data_dict['rewards']['vqa']
       # reward = data_dict['rewards']['human']
       image_fn = os.path.join(basedir, 'images', data_dict['image'])
-      if args.weak_flag == 0:
-        reward += args.kl_coeff
-
-      if args.re_thres == 0:
+      if args.r_threshold is None or reward >= args.r_threshold:
         train_dict['images'].append(image_fn)
         train_dict['captions'].append(data_dict['caption'])
         train_dict['rewards'].append(reward)
-      else:
-        if reward > 0:
-          train_dict['images'].append(image_fn)
-          train_dict['captions'].append(data_dict['caption'])
-          train_dict['rewards'].append(reward)
 
     dataset = Dataset.from_dict(train_dict).cast_column('images', Image())
+  print(f'Dataset size: {len(dataset)}')
 
   # Preprocessing the datasets.
   # We need to tokenize input captions and transform the images.
@@ -741,11 +746,11 @@ def main():
         captions.append(random.choice(caption) if is_train else caption[0])
       else:
         raise ValueError(
-          f'Caption column `{caption_column}` should contain either strings or lists of strings.'
+            f'Caption column `{caption_column}` should contain either strings or lists of strings.'
         )
     inputs = tokenizer(
-      captions, max_length=tokenizer.model_max_length, padding='max_length',
-      truncation=True, return_tensors='pt'
+        captions, max_length=tokenizer.model_max_length, padding='max_length',
+        truncation=True, return_tensors='pt'
     )
     return inputs.input_ids
 
@@ -823,10 +828,12 @@ def main():
   # The trackers initializes automatically on the main process.
   if accelerator.is_main_process:
     run_name = os.path.basename(args.output_dir)
+    config_dict = vars(args)
+    config_dict['resume_from_checkpoint'] = None  # To appease wandb.
     accelerator.init_trackers(
         args.tracker_project_name,
-        config=vars(args),
-        init_kwargs={'wandb': {'name': run_name}},
+        config=config_dict,
+        init_kwargs={'wandb': {'name': run_name, 'resume': 'allow'}},
     )
 
   # Train!
@@ -861,12 +868,14 @@ def main():
       args.resume_from_checkpoint = None
     else:
       accelerator.print(f'Resuming from checkpoint {path}')
-      accelerator.load_state(os.path.join(args.output_dir, path))
+      accelerator.load_state(os.path.join(args.output_dir, 'checkpoint', path))
       global_step = int(path.split('_')[1])
 
       resume_global_step = global_step * args.gradient_accumulation_steps
       first_epoch = global_step // num_update_steps_per_epoch
       resume_step = resume_global_step % (num_update_steps_per_epoch * args.gradient_accumulation_steps)
+      accelerator.print(f'Resume step: {resume_global_step}.')
+      accelerator.print(f'Resume epoch: {first_epoch}')
 
   # Only show the progress bar once on each machine.
   progress_bar = tqdm(range(global_step, args.max_train_steps),
@@ -928,9 +937,7 @@ def main():
         mse_loss = torch.mean(mse_loss)
 
         kl_loss = F.mse_loss(model_pred.float(), old_model_pred.float(), reduction='mean')
-        loss = mse_loss
-        if args.weak_flag == 1:
-          loss += args.kl_coeff * kl_loss
+        loss = mse_loss + args.kl_coeff * kl_loss
 
         # Gather the losses across all processes for logging (if we use distributed training).
         avg_loss = accelerator.gather(mse_loss.repeat(args.train_batch_size)).mean()
