@@ -411,9 +411,9 @@ def parse_args():
       type=int,
       default=None,
       help=(
-        'Max number of checkpoints to store. Passed as `total_limit` to the '
-        '`Accelerator` `ProjectConfiguration`. See Accelerator::save_state '
-        'https://huggingface.co/docs/accelerate/package_reference/accelerator#accelerate.Accelerator.save_state'
+          'Max number of checkpoints to store. Passed as `total_limit` to the '
+          '`Accelerator` `ProjectConfiguration`. See Accelerator::save_state '
+          'https://huggingface.co/docs/accelerate/package_reference/accelerator#accelerate.Accelerator.save_state'
       ),
   )
   parser.add_argument(
@@ -576,7 +576,7 @@ def main():
   if args.seed is not None:
     set_seed(args.seed)
 
-  # Handle the repository creation
+  # Handle the repository creation.
   if accelerator.is_main_process:
     if args.output_dir is not None:
       os.makedirs(args.output_dir, exist_ok=True)
@@ -821,7 +821,7 @@ def main():
       len(train_dataloader) / args.gradient_accumulation_steps)
   if overrode_max_train_steps:
     args.max_train_steps = args.num_train_epochs * num_update_steps_per_epoch
-  # Afterwards we recalculate our number of training epochs
+  # Afterwards we recalculate our number of training epochs.
   args.num_train_epochs = math.ceil(args.max_train_steps / num_update_steps_per_epoch)
 
   # We need to initialize the trackers we use, and also store our configuration.
@@ -844,31 +844,32 @@ def main():
   logger.info(f'  Num Epochs = {args.num_train_epochs}')
   logger.info(f'  Instantaneous batch size per device = {args.train_batch_size}')
   logger.info(f'  Total train batch size (w. parallel, distributed & accumulation) = {total_batch_size}')
-  logger.info(f'  Gradient Accumulation steps = {args.gradient_accumulation_steps}')
+  logger.info(f'  Gradient accumulation steps = {args.gradient_accumulation_steps}')
   logger.info(f'  Total optimization steps = {args.max_train_steps}')
   global_step = 0
   first_epoch = 0
 
   # Potentially load in the weights and states from a previous save.
   if args.resume_from_checkpoint:
-    if args.resume_from_checkpoint != 'latest':
-      path = os.path.basename(args.resume_from_checkpoint)
-    else:
+    ckpt_path = args.resume_from_checkpoint
+    if args.resume_from_checkpoint == 'latest':
       # Get the most recent checkpoint.
       dirs = os.listdir(os.path.join(args.output_dir, 'checkpoint'))
       dirs = [d for d in dirs if d.startswith('ckpt')]
       dirs = sorted(dirs, key=lambda x: int(x.split('_')[1]))
       path = dirs[-1] if len(dirs) > 0 else None
+      ckpt_path = os.path.join(args.output_dir, 'checkpoint', path)
 
     if path is None:
       accelerator.print(
-        f'Checkpoint "{args.resume_from_checkpoint}" does not exist. '
-         'Starting a new training run.'
+          f'Checkpoint "{args.resume_from_checkpoint}" does not exist. '
+          'Starting a new training run.'
       )
       args.resume_from_checkpoint = None
     else:
       accelerator.print(f'Resuming from checkpoint {path}')
-      accelerator.load_state(os.path.join(args.output_dir, 'checkpoint', path))
+      accelerator.load_state(ckpt_path)
+      path = os.path.basename(ckpt_path)
       global_step = int(path.split('_')[1])
 
       resume_global_step = global_step * args.gradient_accumulation_steps
@@ -882,10 +883,10 @@ def main():
                       disable=not accelerator.is_local_main_process)
   progress_bar.set_description('Steps')
 
-  def calculate_reward(image_pil, prompts):
-    blip_reward, _ = image_reward.get_reward(
-      image_pil, prompts, weight_dtype)
-    return blip_reward.to(weight_dtype).squeeze(0).squeeze(0)
+  # def calculate_reward(image_pil, prompts):
+  #   blip_reward, _ = image_reward.get_reward(
+  #     image_pil, prompts, weight_dtype)
+  #   return blip_reward.to(weight_dtype).squeeze(0).squeeze(0)
 
   test_batch = get_test_prompts(args)
   inference(args, accelerator, unet, weight_dtype, test_batch, global_step)
@@ -983,9 +984,11 @@ def main():
       if global_step >= args.max_train_steps:
         break
 
-  # Save the lora layers
+  # Save the lora layers.
   accelerator.wait_for_everyone()
   if accelerator.is_main_process:
+    # Final inference.
+    inference(args, accelerator, unet, weight_dtype, test_batch, global_step)
     unet = unet.to(torch.float32)
     unet.save_attn_procs(args.output_dir)
 
@@ -999,9 +1002,6 @@ def main():
       )
       repo.push_to_hub(commit_message='End of training', blocking=False,
                        auto_lfs_prune=True)
-
-  # Final inference.
-  inference(args, accelerator, unet, weight_dtype, test_batch, global_step)
 
   accelerator.end_training()
 
