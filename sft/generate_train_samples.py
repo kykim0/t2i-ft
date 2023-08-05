@@ -1,7 +1,8 @@
 """Generate training samples for SFT of T2I models.
 
 Example usage:
-  $ CUDA_VISIBLE_DEVICES=0,1 accelerate launch generate_train_samples.py
+  $ CUDA_VISIBLE_DEVICES=1 accelerate launch generate_train_samples.py \
+    --cqa_file=datasets/dog_frog/qas.json --num_seeds=20
 """
 
 import argparse
@@ -11,25 +12,27 @@ import json
 import os
 
 from accelerate import PartialState
-from diffusers import StableDiffusionPipeline
+from diffusers import DiffusionPipeline
+import numpy as np
 import torch
+from tqdm.auto import tqdm
 
 import rewards
 
 
-device = 'cuda' if torch.cuda.is_available() else 'cpu'
+state = PartialState()
 
 
 def parse_args():
   parser = argparse.ArgumentParser()
   parser.add_argument('--cqa_file', type=str, default='')
   # TODO(kykim): Support commandline prompts.
-  parser.add_argument('--basedir', type=str, default='./')
+  parser.add_argument('--outdir', type=str, default=None)
   parser.add_argument('--num_seeds', type=int, default=20)
-  # Be sure to adjust it depending on the no. of processes and images.
-  parser.add_argument('--per_batch_size', type=int, default=16)
-  parser.add_argument('--model_id', type=str,
+  parser.add_argument('--num_imgs_per_seed', type=int, default=1)
+  parser.add_argument('--model_name', type=str,
                       default='stabilityai/stable-diffusion-2-1')
+  parser.add_argument('--lora_path', type=str, default=None)
   parser.add_argument('--metadata_filename', type=str,
                       default='sft_train_data.json')
   args = parser.parse_args()
@@ -46,53 +49,57 @@ def mkdir_p(path):
       raise
 
 
-def image_filename(pidx, seed):
-  """Returns an image filename."""
-  return f'image_{pidx}_{seed}.png'
+def image_filename(pidx, seed, iidx, imgdir):
+  return os.path.join(imgdir, f'image_{pidx}_{seed}_{iidx}.png')
 
 
-def generate_images(args, all_captions, c_to_idx):
+def generate_images(args, all_captions, c_to_idx, imgdir):
   """Generates images using multiple GPUs in parallel."""
-  model_id = args.model_id
-  
+  model_name = args.model_name
+  dtype = torch.float16
+
   # Load a pre-trained model.
-  pipe = StableDiffusionPipeline.from_pretrained(model_id,
-                                                 torch_dtype=torch.float16)
-  
-  distributed_state = PartialState()
-  num_procs = distributed_state.num_processes
-  pipe.to(distributed_state.device)
+  pipe = DiffusionPipeline.from_pretrained(model_name, torch_dtype=dtype)
+  pipe.set_progress_bar_config(disable=True)
+  if args.lora_path:
+    pipe.unet.load_attn_procs(args.lora_path)
 
-  def img_fn(pidx, seed):
-    return os.path.join(args.basedir, 'images', image_filename(pidx, seed))
+  device = state.device
+  pipe.to(device)
 
-  batch_size = num_procs * args.per_batch_size
-  num_chuncks = (len(all_captions) + batch_size - 1) // batch_size
-  for seed in range(args.num_seeds):
-    generator = torch.Generator('cuda').manual_seed(seed)
-    for sidx in range(num_chuncks):
-      sub_captions = all_captions[sidx * batch_size:(sidx + 1) * batch_size]
-      with distributed_state.split_between_processes(sub_captions) as captions:
-        # Continue if all images in the batch already generated.
-        filenames = [img_fn(c_to_idx[caption], seed) for caption in captions]
-        if all(os.path.exists(fn) for fn in filenames):
-          continue
+  num_imgs_per_seed = args.num_imgs_per_seed
+  num_seeds = args.num_seeds
+  seeds = list(range(num_seeds))
+  for caption in all_captions:
+    print(f'Generating images for: {caption}')
+    captions = [caption] * num_imgs_per_seed
+    with state.split_between_processes(seeds) as sub_seeds:
+      # Continue if all images in the batch already generated.
+      filenames = [
+          image_filename(c_to_idx[caption], seed, iidx, imgdir)
+          for iidx, seed in itertools.product(
+              range(num_imgs_per_seed), sub_seeds)
+      ]
+      if all(os.path.exists(fn) for fn in filenames): continue
 
-        # Generate the batch in one inference.
+      for seed in tqdm(sub_seeds):
+        generator = torch.Generator(device).manual_seed(seed)
         img_results = pipe(captions, generator=generator).images
-        for caption, img_result in zip(captions, img_results):
-          filename = img_fn(c_to_idx[caption], seed)
+        for iidx, img_result in enumerate(img_results):
+          filename = image_filename(c_to_idx[caption], seed, iidx, imgdir)
           img_result.save(filename)
 
-  distributed_state.wait_for_everyone()
+  state.wait_for_everyone()
+  del pipe
+  torch.cuda.empty_cache()
 
 
-def compute_rewards(args, captions, images, cqas):
+def compute_rewards(captions, image_paths, cqas):
   """Computes rewards and returns the final data dict."""
-  images_paths = [os.path.join(args.basedir, 'images', img) for img in images]
-  vqa_rs = rewards.vqa_rewards(captions, images_paths, cqas)
+  vqa_rs = rewards.vqa_rewards(captions, image_paths, cqas)
   final_data_dicts = []
-  for caption, image, vqa_r in zip(captions, images, vqa_rs):
+  for caption, image_path, vqa_r in zip(captions, image_paths, vqa_rs):
+    image = os.path.basename(image_path)
     final_data_dicts.append({
         'image': image,
         'caption': caption,
@@ -107,9 +114,8 @@ def compute_rewards(args, captions, images, cqas):
 def main():
   args = parse_args()
 
+  # Read the json file of captions and QAs.
   cqa_file = args.cqa_file
-  if not os.path.exists(cqa_file):
-    cqa_file = os.path.join(args.basedir, args.cqa_file)
   if not os.path.exists(cqa_file):
     print(f'File does not exist: {args.cqa_file}')
     return
@@ -119,16 +125,31 @@ def main():
   all_captions = list(cqas.keys())
   c_to_idx = {caption: idx for idx, caption in enumerate(all_captions)}
 
-  mkdir_p(os.path.join(args.basedir, 'images'))
-  generate_images(args, all_captions, c_to_idx)
+  # Generate images using either a pre-trained or fine-tuned model.
+  basedir = os.path.dirname(cqa_file)
+  outdir = args.outdir or basedir
+  subfolder = (f'images_{os.path.basename(args.lora_path)}'
+               if args.lora_path else 'images')
+  imgdir = os.path.join(outdir, subfolder)
+  mkdir_p(imgdir)
+  generate_images(args, all_captions, c_to_idx, imgdir)
 
-  images, captions = [], []
-  for caption, seed in itertools.product(all_captions, range(args.num_seeds)):
-    images.append(image_filename(c_to_idx[caption], seed))
+  # Only the main process needs to run the rest of the logic.
+  if not state.is_main_process: return
+
+  # Compute rewards and write out to a json.
+  image_paths, captions = [], []
+  for caption, seed, iidx in itertools.product(
+        all_captions, range(args.num_seeds), range(args.num_imgs_per_seed)):
+    image_paths.append(image_filename(c_to_idx[caption], seed, iidx, imgdir))
     captions.append(caption)
-  data_dicts = compute_rewards(args, captions, images, cqas)
-
-  with open(os.path.join(args.basedir, args.metadata_filename), 'w') as f:
+  data_dicts = compute_rewards(captions, image_paths, cqas)
+  # data_dicts = sorted(data_dicts, key=lambda d: d['image'])
+  metadata_filename = args.metadata_filename
+  if args.lora_path:
+    name, ext = metadata_filename.split('.')
+    metadata_filename = f'{name}_{os.path.basename(args.lora_path)}.{ext}'
+  with open(os.path.join(outdir, metadata_filename), 'w') as f:
     json.dump(data_dicts, f, indent=4)
 
 
