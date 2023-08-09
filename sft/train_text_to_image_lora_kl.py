@@ -508,18 +508,7 @@ def inference(args, accelerator, unet, weight_dtype, test_batch, global_step):
 def main():
   args = parse_args()
 
-  accelerator_project_config = ProjectConfiguration(total_limit=args.checkpoints_total_limit)
-
-  # See https://huggingface.co/docs/accelerate/usage_guides/gradient_accumulation.
-  accelerator = Accelerator(
-      gradient_accumulation_steps=args.gradient_accumulation_steps,
-      mixed_precision=args.mixed_precision,
-      log_with=args.report_to,
-      # project_dir=logging_dir,
-      project_config=accelerator_project_config,
-  )
-
-  total_batch_size = args.train_batch_size * accelerator.num_processes * args.gradient_accumulation_steps
+  total_batch_size = args.train_batch_size * torch.cuda.device_count() * args.gradient_accumulation_steps
 
   # Set log_dir.
   args.output_dir += '/b' + str(total_batch_size)
@@ -535,11 +524,16 @@ def main():
   mkdir_p(os.path.join(args.output_dir, 'checkpoint'))
   mkdir_p(os.path.join(args.output_dir, 'inference'))
 
-  # Somewhat a hack to be able to use the total batch size in the logging dir.
-  # The issue is that we need num_processes to compute the batch size which
-  # requires accelerator to be instantiated first. So, we create an accelerator
-  # and then override the logging directory afterwards with a project dir.
-  accelerator.project_configuration.set_directories(logging_dir)
+  accelerator_project_config = ProjectConfiguration(total_limit=args.checkpoints_total_limit)
+
+  # See https://huggingface.co/docs/accelerate/usage_guides/gradient_accumulation.
+  accelerator = Accelerator(
+      gradient_accumulation_steps=args.gradient_accumulation_steps,
+      mixed_precision=args.mixed_precision,
+      log_with=args.report_to,
+      project_dir=logging_dir,
+      project_config=accelerator_project_config,
+  )
 
   if args.report_to == 'wandb':
     if not is_wandb_available():
