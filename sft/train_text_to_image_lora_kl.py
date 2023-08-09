@@ -20,9 +20,8 @@ import json
 import logging
 import math
 import os
-from pathlib import Path
 import random
-from typing import Optional
+import re
 
 import datasets
 import numpy as np
@@ -199,15 +198,6 @@ def parse_args():
       type=int,
       default=None,
       help='If provided, take this many samples from the metadata.',
-  )
-  parser.add_argument(
-      '--image_column', type=str, default='image', help='The column of the dataset containing an image.'
-  )
-  parser.add_argument(
-      '--caption_column',
-      type=str,
-      default='caption',
-      help='The column of the dataset containing a caption or a list of captions.',
   )
   parser.add_argument(
       '--validation_prompt', type=str, default=None, help='A prompt that is sampled during training for inference.'
@@ -439,6 +429,7 @@ def parse_args():
       default='text2image-fine-tune-tmp',
       help='The `project_name` argument passed to Accelerator.init_trackers',
   )
+  parser.add_argument('--iteration_number', type=int, default=None)
 
   args = parser.parse_args()
   env_local_rank = int(os.environ.get('LOCAL_RANK', -1))
@@ -450,16 +441,6 @@ def parse_args():
     raise ValueError('Need either a dataset name or a training folder.')
 
   return args
-
-
-def get_full_repo_name(model_id: str, organization: Optional[str] = None, token: Optional[str] = None):
-  if token is None:
-    token = HfFolder.get_token()
-  if organization is None:
-    username = whoami(token)['name']
-    return f'{username}/{model_id}'
-  else:
-    return f'{organization}/{model_id}'
 
 
 def mkdir_p(path):
@@ -490,7 +471,8 @@ def inference(args, accelerator, unet, weight_dtype, test_batch, global_step):
   )
   pipeline = pipeline.to(accelerator.device)
   pipeline.set_progress_bar_config(disable=True)
-  generator = torch.Generator(device=accelerator.device).manual_seed(args.seed)
+  seed = args.seed
+  generator = torch.Generator(device=accelerator.device).manual_seed(seed)
 
   tot_reward = []
   for tidx, validation_prompt in enumerate(test_batch):
@@ -513,7 +495,7 @@ def inference(args, accelerator, unet, weight_dtype, test_batch, global_step):
     test_scores = []
     for iidx, image in enumerate(images):
       filename = os.path.join(args.output_dir, 'inference',
-                              f'test_{global_step}_{tidx}_{iidx}.png')
+                              f'test_{global_step}_{tidx}_{seed}_{iidx}.png')
       image.save(filename)
       # score = calculate_reward(image, validation_prompt)
       # test_scores.append(score.item())
@@ -528,7 +510,6 @@ def inference(args, accelerator, unet, weight_dtype, test_batch, global_step):
 def main():
   args = parse_args()
   # Set log_dir.
-  data_dir = os.path.basename(args.train_data_dir)
   args.output_dir += '/b' + str(args.train_batch_size)
   args.output_dir += '_a' + str(args.gradient_accumulation_steps)
   args.output_dir += '_lr' + str(args.learning_rate)
@@ -536,6 +517,8 @@ def main():
   if args.r_threshold:
     args.output_dir += '_rt' + str(args.r_threshold)
   args.output_dir += '_max' + str(args.max_train_steps)
+  if args.iteration_number is not None:
+    args.output_dir += '/it' + str(args.iteration_number)
 
   logging_dir = os.path.join(args.output_dir, args.logging_dir)
   mkdir_p(os.path.join(args.output_dir, 'checkpoint'))
@@ -641,7 +624,7 @@ def main():
   # - up blocks (2x attention layers) * (3x transformer layers) * (3x down blocks) = 18
   # => 32 layers
 
-  # Set correct lora layers
+  # Set correct LoRA layers.
   lora_attn_procs = {}
   for name in unet.attn_processors.keys():
     cross_attention_dim = None if name.endswith('attn1.processor') else unet.config.cross_attention_dim
@@ -786,7 +769,7 @@ def main():
     weights = weights.to(memory_format=torch.contiguous_format).float()
     return {'pixel_values': pixel_values, 'input_ids': input_ids, 'weights': weights}
 
-  # DataLoaders creation:
+  # Create DataLoader.
   train_dataloader = torch.utils.data.DataLoader(
       train_dataset,
       shuffle=True,
@@ -860,23 +843,24 @@ def main():
       path = dirs[-1] if len(dirs) > 0 else None
       ckpt_path = os.path.join(args.output_dir, 'checkpoint', path)
 
-    if path is None:
+    if ckpt_path is None:
       accelerator.print(
           f'Checkpoint "{args.resume_from_checkpoint}" does not exist. '
           'Starting a new training run.'
       )
       args.resume_from_checkpoint = None
     else:
-      accelerator.print(f'Resuming from checkpoint {path}')
+      accelerator.print(f'Resuming from checkpoint {ckpt_path}')
       accelerator.load_state(ckpt_path)
       path = os.path.basename(ckpt_path)
-      global_step = int(path.split('_')[1])
-
-      resume_global_step = global_step * args.gradient_accumulation_steps
-      first_epoch = global_step // num_update_steps_per_epoch
-      resume_step = resume_global_step % (num_update_steps_per_epoch * args.gradient_accumulation_steps)
-      accelerator.print(f'Resume step: {resume_global_step}.')
-      accelerator.print(f'Resume epoch: {first_epoch}')
+      # Resume from the previous step if not an autophagy experiment.
+      if not args.iteration_number:
+        global_step = int(path.split('_')[1])
+        resume_global_step = global_step * args.gradient_accumulation_steps
+        first_epoch = global_step // num_update_steps_per_epoch
+        resume_step = resume_global_step % (num_update_steps_per_epoch * args.gradient_accumulation_steps)
+        accelerator.print(f'Resume step: {resume_global_step}.')
+        accelerator.print(f'Resume epoch: {first_epoch}')
 
   # Only show the progress bar once on each machine.
   progress_bar = tqdm(range(global_step, args.max_train_steps),
@@ -888,8 +872,15 @@ def main():
   #     image_pil, prompts, weight_dtype)
   #   return blip_reward.to(weight_dtype).squeeze(0).squeeze(0)
 
-  test_batch = get_test_prompts(args)
-  inference(args, accelerator, unet, weight_dtype, test_batch, global_step)
+  # Run inference and save the 0-th checkpoint before starting training.
+  if accelerator.is_main_process:
+    test_batch = get_test_prompts(args)
+    # inference(args, accelerator, unet, weight_dtype, test_batch, global_step)
+    save_path = os.path.join(args.output_dir, 'checkpoint', 'ckpt_0')
+    unet.save_attn_procs(save_path)
+    accelerator.save_state(save_path)
+    logger.info(f'Saved a checkpoint to {save_path}')
+
   for epoch in range(first_epoch, args.num_train_epochs):
     unet.train()
     train_loss, train_kl_loss = 0.0, 0.0
@@ -959,8 +950,7 @@ def main():
       if accelerator.sync_gradients:
         progress_bar.update(1)
         global_step += 1
-        accelerator.log({'mse_loss': train_loss,
-                         'kl_loss': train_kl_loss},
+        accelerator.log({'mse_loss': train_loss, 'kl_loss': train_kl_loss},
                         step=global_step)
         train_loss, train_kl_loss = 0.0, 0.0
 
@@ -984,7 +974,7 @@ def main():
       if global_step >= args.max_train_steps:
         break
 
-  # Save the lora layers.
+  # Save the LoRA layers.
   accelerator.wait_for_everyone()
   if accelerator.is_main_process:
     # Final inference.
