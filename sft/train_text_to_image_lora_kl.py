@@ -21,7 +21,6 @@ import logging
 import math
 import os
 import random
-import re
 
 import datasets
 import numpy as np
@@ -33,7 +32,6 @@ from accelerate import Accelerator
 from accelerate.logging import get_logger
 from accelerate.utils import ProjectConfiguration, set_seed
 from datasets import load_dataset, Dataset, Image
-from huggingface_hub import HfFolder, Repository, create_repo, whoami
 from packaging import version
 from torchvision import transforms
 from tqdm.auto import tqdm
@@ -509,9 +507,11 @@ def inference(args, accelerator, unet, weight_dtype, test_batch, global_step):
 
 def main():
   args = parse_args()
+
+  total_batch_size = args.train_batch_size * accelerator.num_processes * args.gradient_accumulation_steps
+
   # Set log_dir.
-  args.output_dir += '/b' + str(args.train_batch_size)
-  args.output_dir += '_a' + str(args.gradient_accumulation_steps)
+  args.output_dir += '/b' + str(total_batch_size)
   args.output_dir += '_lr' + str(args.learning_rate)
   args.output_dir += '_kl' + str(args.kl_coeff)
   if args.r_threshold:
@@ -820,8 +820,6 @@ def main():
     )
 
   # Train!
-  total_batch_size = args.train_batch_size * accelerator.num_processes * args.gradient_accumulation_steps
-
   logger.info('***** Running training *****')
   logger.info(f'  Num examples = {len(train_dataset)}')
   logger.info(f'  Num Epochs = {args.num_train_epochs}')
