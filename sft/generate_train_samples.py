@@ -97,7 +97,6 @@ def generate_images(args, all_captions, c_to_idx, imgdir, lora_path=None):
           filename = image_filename(c_to_idx[caption], seed, iidx, imgdir)
           img_result.save(filename)
 
-  state.wait_for_everyone()
   del pipe
   torch.cuda.empty_cache()
 
@@ -132,7 +131,6 @@ def compute_rewards(args, paths, captions, image_names, cqas):
       with open(metadata_filename, 'w') as f:
         json.dump(data_dicts, f, indent=4)
 
-  state.wait_for_everyone()
   del vqa_model
   torch.cuda.empty_cache()
 
@@ -154,7 +152,7 @@ def main():
   # Generate images using either a pre-trained or fine-tuned model.
   basedir = os.path.dirname(cqa_file)
   outdir = args.outdir or basedir
-  paths = ['']  # A hack to support the basic pre-trained case.
+  paths = [outdir]  # A hack to support the basic non-LoRA case.
   if args.lora_paths == 'all':
     paths = glob.glob(os.path.join(outdir, 'checkpoint', 'ckpt*'))
   elif args.lora_paths:
@@ -162,10 +160,15 @@ def main():
   for idx, path in enumerate(paths):
     if state.is_main_process:
       print(f'[{idx+1}/{len(paths)}] Processing {path}')
-    imgbase = path if path else outdir
-    imgdir = os.path.join(imgbase, 'images')
+    imgdir = os.path.join(path, 'images')
+    lora_path = path if path != outdir else None
     mkdir_p(imgdir)
-    generate_images(args, all_captions, c_to_idx, imgdir, lora_path=path)
+    generate_images(args, all_captions, c_to_idx, imgdir, lora_path=lora_path)
+
+  # TODO(kykim): Somehow the VQA model gets replicated multiple times in the
+  # main process memory. Run the reward computation using only a single GPU
+  # until we fix the issue. This part is also fast enough.
+  if not state.is_main_process: return
 
   # Compute rewards and write out to a json.
   image_names, captions = [], []
