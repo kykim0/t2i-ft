@@ -30,6 +30,7 @@ def parse_args():
   parser.add_argument('--outdir', type=str, default=None)
   parser.add_argument('--num_seeds', type=int, default=20)
   parser.add_argument('--num_imgs_per_seed', type=int, default=1)
+  parser.add_argument('--split_captions', type=bool, default=False)
   parser.add_argument('--model_name', type=str,
                       default='stabilityai/stable-diffusion-2-1')
   parser.add_argument('--revision', type=str, default=None)
@@ -76,26 +77,39 @@ def generate_images(args, all_captions, c_to_idx, imgdir, lora_path=None):
 
   seeds = list(range(args.num_seeds))
   num_imgs_per_seed = args.num_imgs_per_seed
-  for caption in all_captions:
-    captions = [caption] * num_imgs_per_seed
-    # TODO(kykim): We tried shuffling the seed list before the split, but the
-    # naive approach does not do it correctly. It appears that each process
-    # does its own shuffling and takes its portion afterwards.
-    with state.split_between_processes(seeds) as sub_seeds:
-      print(f'({state.local_process_index}) Generating images for: '
-            f'"{caption}" with seeds {sub_seeds}')
-      for seed in tqdm(sub_seeds):
-        # Continue if all images for the seed already generated.
-        filenames = [
-            image_filename(c_to_idx[caption], seed, iidx, imgdir)
-            for iidx in range(num_imgs_per_seed)
-        ]
-        if all(os.path.exists(fn) for fn in filenames): continue
-        generator = torch.Generator(device).manual_seed(seed)
-        img_results = pipe(captions, generator=generator).images
-        for iidx, img_result in enumerate(img_results):
-          filename = image_filename(c_to_idx[caption], seed, iidx, imgdir)
-          img_result.save(filename)
+
+  def subroutine(captions, seeds):
+    for seed in seeds:
+      # Continue if all images for the seed already generated.
+      filenames = [
+          image_filename(c_to_idx[caption], seed, iidx, imgdir)
+          for iidx in range(args.num_imgs_per_seed)
+      ]
+      if all(os.path.exists(fn) for fn in filenames): continue
+
+      generator = torch.Generator(device).manual_seed(seed)
+      img_results = pipe(captions, generator=generator).images
+      for iidx, img_result in enumerate(img_results):
+        filename = image_filename(c_to_idx[caption], seed, iidx, imgdir)
+        img_result.save(filename)
+
+  if args.split_captions:
+    with state.split_between_processes(all_captions) as sub_captions:
+      for caption in tqdm(sub_captions):
+        captions = [caption] * num_imgs_per_seed
+        print(f'({state.local_process_index}) Generating images for: '
+              f'"{caption}" with seeds {seeds}')
+        subroutine(captions, seeds)
+  else:
+    for caption in all_captions:
+      captions = [caption] * num_imgs_per_seed
+      # TODO(kykim): We tried shuffling the seed list before the split, but the
+      # naive approach does not do it correctly. It appears that each process
+      # does its own shuffling and takes its portion afterwards.
+      with state.split_between_processes(seeds) as sub_seeds:
+        print(f'({state.local_process_index}) Generating images for: '
+              f'"{caption}" with seeds {sub_seeds}')
+        subroutine(captions, tqdm(sub_seeds))
 
   del pipe
   torch.cuda.empty_cache()
