@@ -30,7 +30,7 @@ import torch.utils.checkpoint
 import transformers
 from accelerate import Accelerator
 from accelerate.logging import get_logger
-from accelerate.utils import ProjectConfiguration, set_seed
+from accelerate.utils import DistributedType, ProjectConfiguration, set_seed
 from datasets import load_dataset, Dataset, Image
 from packaging import version
 from torchvision import transforms
@@ -294,6 +294,7 @@ def parse_args():
       default=None,
       help='Filter examples with reward less than this threshold, if set.',
   )
+  parser.add_argument('--reward_type', type=str, default='vqa')
   parser.add_argument(
       '--scale_lr',
       action='store_true',
@@ -414,7 +415,6 @@ def parse_args():
           'automatically select the last available checkpoint.'
       ),
   )
-  parser.add_argument('--path_imagereward', type=str, default=None)
   parser.add_argument(
       '--enable_xformers_memory_efficient_attention',
       action='store_true',
@@ -427,7 +427,7 @@ def parse_args():
       default='text2image-fine-tune-tmp',
       help='The `project_name` argument passed to Accelerator.init_trackers',
   )
-  parser.add_argument('--iteration_number', type=int, default=None)
+  parser.add_argument('--iteration', type=int, default=None)
 
   args = parser.parse_args()
   env_local_rank = int(os.environ.get('LOCAL_RANK', -1))
@@ -517,8 +517,8 @@ def main():
   if args.r_threshold:
     args.output_dir += '_rt' + str(args.r_threshold)
   args.output_dir += '_max' + str(args.max_train_steps)
-  if args.iteration_number is not None:
-    args.output_dir += '/it' + str(args.iteration_number)
+  if args.iteration is not None:
+    args.output_dir += '/it' + str(args.iteration)
 
   logging_dir = os.path.join(args.output_dir, args.logging_dir)
   mkdir_p(os.path.join(args.output_dir, 'checkpoint'))
@@ -577,13 +577,11 @@ def main():
   unet = UNet2DConditionModel.from_pretrained(
     args.pretrained_model_name_or_path, subfolder='unet', revision=args.revision
   )
-  # image_reward = imagereward.load('ImageReward-v1.0', download_root=args.path_imagereward)
 
   # Freeze parameters of models to save more memory.
   unet.requires_grad_(False)
   vae.requires_grad_(False)
   text_encoder.requires_grad_(False)
-  # image_reward.requires_grad_(False)
 
   # For mixed precision training we cast the text_encoder and vae weights to half-precision
   # as these models are only used for inference, keeping weights in full precision is not required.
@@ -597,7 +595,6 @@ def main():
   unet.to(accelerator.device, dtype=weight_dtype)
   vae.to(accelerator.device, dtype=weight_dtype)
   text_encoder.to(accelerator.device, dtype=weight_dtype)
-  # image_reward.to(accelerator.device, dtype=weight_dtype)
 
   if args.enable_xformers_memory_efficient_attention:
     if is_xformers_available():
@@ -703,9 +700,10 @@ def main():
 
     # Filtering.
     train_dict = {'images': [], 'captions': [], 'rewards': []}
+    reward_type = args.reward_type
     for data_dict in data_dicts:
-      reward = data_dict['rewards']['vqa']
-      # reward = data_dict['rewards']['human']
+      reward = data_dict['rewards'][reward_type]
+      # reward = np.mean(data_dict['rewards']['human'])
       image_fn = os.path.join(basedir, 'images', data_dict['image'])
       if args.r_threshold is None or reward >= args.r_threshold:
         train_dict['images'].append(image_fn)
@@ -796,8 +794,12 @@ def main():
   )
 
   # Prepare everything with our `accelerator`.
-  lora_layers, optimizer, train_dataloader, lr_scheduler = accelerator.prepare(
-      lora_layers, optimizer, train_dataloader, lr_scheduler)
+  if accelerator.use_distributed:
+    unet, optimizer, train_dataloader, lr_scheduler = accelerator.prepare(
+        unet, optimizer, train_dataloader, lr_scheduler)
+  else:
+    lora_layers, optimizer, train_dataloader, lr_scheduler = accelerator.prepare(
+        lora_layers, optimizer, train_dataloader, lr_scheduler)
 
   # We need to recalculate our total training steps as the size of the
   # training dataloader may have changed.
@@ -853,7 +855,7 @@ def main():
       accelerator.load_state(ckpt_path)
       path = os.path.basename(ckpt_path)
       # Resume from the previous step if not an autophagy experiment.
-      if not args.iteration_number:
+      if not args.iteration:
         global_step = int(path.split('_')[1])
         resume_global_step = global_step * args.gradient_accumulation_steps
         first_epoch = global_step // num_update_steps_per_epoch
@@ -865,11 +867,6 @@ def main():
   progress_bar = tqdm(range(global_step, args.max_train_steps),
                       disable=not accelerator.is_local_main_process)
   progress_bar.set_description('Steps')
-
-  # def calculate_reward(image_pil, prompts):
-  #   blip_reward, _ = image_reward.get_reward(
-  #     image_pil, prompts, weight_dtype)
-  #   return blip_reward.to(weight_dtype).squeeze(0).squeeze(0)
 
   # Run inference and save the 0-th checkpoint before starting training.
   if accelerator.is_main_process:
