@@ -1,0 +1,3422 @@
+{
+    "a realistic photo of an airplane and an automobile": [
+        {
+            "caption": "a realistic photo of an airplane and an automobile",
+            "question": "are there airplanes in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "airplane",
+                "automobile"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an airplane and an automobile",
+            "question": "how many airplanes are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "airplane",
+                "automobile"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an airplane and an automobile",
+            "question": "are there automobiles in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "airplane",
+                "automobile"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an airplane and an automobile",
+            "question": "how many automobiles are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "airplane",
+                "automobile"
+            ]
+        }
+    ],
+    "a realistic photo of an airplane and a bird": [
+        {
+            "caption": "a realistic photo of an airplane and a bird",
+            "question": "are there airplanes in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "airplane",
+                "bird"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an airplane and a bird",
+            "question": "how many airplanes are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "airplane",
+                "bird"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an airplane and a bird",
+            "question": "are there birds in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "airplane",
+                "bird"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an airplane and a bird",
+            "question": "how many birds are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "airplane",
+                "bird"
+            ]
+        }
+    ],
+    "a realistic photo of an airplane and a cat": [
+        {
+            "caption": "a realistic photo of an airplane and a cat",
+            "question": "are there airplanes in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "airplane",
+                "cat"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an airplane and a cat",
+            "question": "how many airplanes are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "airplane",
+                "cat"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an airplane and a cat",
+            "question": "are there cats in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "airplane",
+                "cat"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an airplane and a cat",
+            "question": "how many cats are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "airplane",
+                "cat"
+            ]
+        }
+    ],
+    "a realistic photo of an airplane and a deer": [
+        {
+            "caption": "a realistic photo of an airplane and a deer",
+            "question": "are there airplanes in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "airplane",
+                "deer"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an airplane and a deer",
+            "question": "how many airplanes are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "airplane",
+                "deer"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an airplane and a deer",
+            "question": "are there deer in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "airplane",
+                "deer"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an airplane and a deer",
+            "question": "how many deer are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "airplane",
+                "deer"
+            ]
+        }
+    ],
+    "a realistic photo of an airplane and a dog": [
+        {
+            "caption": "a realistic photo of an airplane and a dog",
+            "question": "are there airplanes in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "airplane",
+                "dog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an airplane and a dog",
+            "question": "how many airplanes are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "airplane",
+                "dog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an airplane and a dog",
+            "question": "are there dogs in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "airplane",
+                "dog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an airplane and a dog",
+            "question": "how many dogs are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "airplane",
+                "dog"
+            ]
+        }
+    ],
+    "a realistic photo of an airplane and a frog": [
+        {
+            "caption": "a realistic photo of an airplane and a frog",
+            "question": "are there airplanes in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "airplane",
+                "frog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an airplane and a frog",
+            "question": "how many airplanes are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "airplane",
+                "frog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an airplane and a frog",
+            "question": "are there frogs in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "airplane",
+                "frog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an airplane and a frog",
+            "question": "how many frogs are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "airplane",
+                "frog"
+            ]
+        }
+    ],
+    "a realistic photo of an airplane and a horse": [
+        {
+            "caption": "a realistic photo of an airplane and a horse",
+            "question": "are there airplanes in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "airplane",
+                "horse"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an airplane and a horse",
+            "question": "how many airplanes are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "airplane",
+                "horse"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an airplane and a horse",
+            "question": "are there horses in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "airplane",
+                "horse"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an airplane and a horse",
+            "question": "how many horses are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "airplane",
+                "horse"
+            ]
+        }
+    ],
+    "a realistic photo of an airplane and a ship": [
+        {
+            "caption": "a realistic photo of an airplane and a ship",
+            "question": "are there airplanes in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "airplane",
+                "ship"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an airplane and a ship",
+            "question": "how many airplanes are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "airplane",
+                "ship"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an airplane and a ship",
+            "question": "are there ships in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "airplane",
+                "ship"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an airplane and a ship",
+            "question": "how many ships are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "airplane",
+                "ship"
+            ]
+        }
+    ],
+    "a realistic photo of an airplane and a truck": [
+        {
+            "caption": "a realistic photo of an airplane and a truck",
+            "question": "are there airplanes in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "airplane",
+                "truck"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an airplane and a truck",
+            "question": "how many airplanes are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "airplane",
+                "truck"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an airplane and a truck",
+            "question": "are there trucks in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "airplane",
+                "truck"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an airplane and a truck",
+            "question": "how many trucks are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "airplane",
+                "truck"
+            ]
+        }
+    ],
+    "a realistic photo of an automobile and a bird": [
+        {
+            "caption": "a realistic photo of an automobile and a bird",
+            "question": "are there automobiles in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "automobile",
+                "bird"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an automobile and a bird",
+            "question": "how many automobiles are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "automobile",
+                "bird"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an automobile and a bird",
+            "question": "are there birds in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "automobile",
+                "bird"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an automobile and a bird",
+            "question": "how many birds are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "automobile",
+                "bird"
+            ]
+        }
+    ],
+    "a realistic photo of an automobile and a cat": [
+        {
+            "caption": "a realistic photo of an automobile and a cat",
+            "question": "are there automobiles in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "automobile",
+                "cat"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an automobile and a cat",
+            "question": "how many automobiles are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "automobile",
+                "cat"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an automobile and a cat",
+            "question": "are there cats in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "automobile",
+                "cat"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an automobile and a cat",
+            "question": "how many cats are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "automobile",
+                "cat"
+            ]
+        }
+    ],
+    "a realistic photo of an automobile and a deer": [
+        {
+            "caption": "a realistic photo of an automobile and a deer",
+            "question": "are there automobiles in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "automobile",
+                "deer"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an automobile and a deer",
+            "question": "how many automobiles are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "automobile",
+                "deer"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an automobile and a deer",
+            "question": "are there deer in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "automobile",
+                "deer"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an automobile and a deer",
+            "question": "how many deer are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "automobile",
+                "deer"
+            ]
+        }
+    ],
+    "a realistic photo of an automobile and a dog": [
+        {
+            "caption": "a realistic photo of an automobile and a dog",
+            "question": "are there automobiles in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "automobile",
+                "dog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an automobile and a dog",
+            "question": "how many automobiles are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "automobile",
+                "dog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an automobile and a dog",
+            "question": "are there dogs in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "automobile",
+                "dog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an automobile and a dog",
+            "question": "how many dogs are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "automobile",
+                "dog"
+            ]
+        }
+    ],
+    "a realistic photo of an automobile and a frog": [
+        {
+            "caption": "a realistic photo of an automobile and a frog",
+            "question": "are there automobiles in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "automobile",
+                "frog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an automobile and a frog",
+            "question": "how many automobiles are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "automobile",
+                "frog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an automobile and a frog",
+            "question": "are there frogs in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "automobile",
+                "frog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an automobile and a frog",
+            "question": "how many frogs are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "automobile",
+                "frog"
+            ]
+        }
+    ],
+    "a realistic photo of an automobile and a horse": [
+        {
+            "caption": "a realistic photo of an automobile and a horse",
+            "question": "are there automobiles in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "automobile",
+                "horse"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an automobile and a horse",
+            "question": "how many automobiles are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "automobile",
+                "horse"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an automobile and a horse",
+            "question": "are there horses in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "automobile",
+                "horse"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an automobile and a horse",
+            "question": "how many horses are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "automobile",
+                "horse"
+            ]
+        }
+    ],
+    "a realistic photo of an automobile and a ship": [
+        {
+            "caption": "a realistic photo of an automobile and a ship",
+            "question": "are there automobiles in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "automobile",
+                "ship"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an automobile and a ship",
+            "question": "how many automobiles are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "automobile",
+                "ship"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an automobile and a ship",
+            "question": "are there ships in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "automobile",
+                "ship"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an automobile and a ship",
+            "question": "how many ships are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "automobile",
+                "ship"
+            ]
+        }
+    ],
+    "a realistic photo of an automobile and a truck": [
+        {
+            "caption": "a realistic photo of an automobile and a truck",
+            "question": "are there automobiles in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "automobile",
+                "truck"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an automobile and a truck",
+            "question": "how many automobiles are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "automobile",
+                "truck"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an automobile and a truck",
+            "question": "are there trucks in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "automobile",
+                "truck"
+            ]
+        },
+        {
+            "caption": "a realistic photo of an automobile and a truck",
+            "question": "how many trucks are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "automobile",
+                "truck"
+            ]
+        }
+    ],
+    "a realistic photo of a bird and a cat": [
+        {
+            "caption": "a realistic photo of a bird and a cat",
+            "question": "are there birds in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "bird",
+                "cat"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a bird and a cat",
+            "question": "how many birds are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "bird",
+                "cat"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a bird and a cat",
+            "question": "are there cats in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "bird",
+                "cat"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a bird and a cat",
+            "question": "how many cats are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "bird",
+                "cat"
+            ]
+        }
+    ],
+    "a realistic photo of a bird and a deer": [
+        {
+            "caption": "a realistic photo of a bird and a deer",
+            "question": "are there birds in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "bird",
+                "deer"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a bird and a deer",
+            "question": "how many birds are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "bird",
+                "deer"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a bird and a deer",
+            "question": "are there deer in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "bird",
+                "deer"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a bird and a deer",
+            "question": "how many deer are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "bird",
+                "deer"
+            ]
+        }
+    ],
+    "a realistic photo of a bird and a dog": [
+        {
+            "caption": "a realistic photo of a bird and a dog",
+            "question": "are there birds in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "bird",
+                "dog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a bird and a dog",
+            "question": "how many birds are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "bird",
+                "dog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a bird and a dog",
+            "question": "are there dogs in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "bird",
+                "dog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a bird and a dog",
+            "question": "how many dogs are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "bird",
+                "dog"
+            ]
+        }
+    ],
+    "a realistic photo of a bird and a frog": [
+        {
+            "caption": "a realistic photo of a bird and a frog",
+            "question": "are there birds in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "bird",
+                "frog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a bird and a frog",
+            "question": "how many birds are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "bird",
+                "frog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a bird and a frog",
+            "question": "are there frogs in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "bird",
+                "frog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a bird and a frog",
+            "question": "how many frogs are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "bird",
+                "frog"
+            ]
+        }
+    ],
+    "a realistic photo of a bird and a horse": [
+        {
+            "caption": "a realistic photo of a bird and a horse",
+            "question": "are there birds in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "bird",
+                "horse"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a bird and a horse",
+            "question": "how many birds are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "bird",
+                "horse"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a bird and a horse",
+            "question": "are there horses in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "bird",
+                "horse"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a bird and a horse",
+            "question": "how many horses are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "bird",
+                "horse"
+            ]
+        }
+    ],
+    "a realistic photo of a bird and a ship": [
+        {
+            "caption": "a realistic photo of a bird and a ship",
+            "question": "are there birds in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "bird",
+                "ship"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a bird and a ship",
+            "question": "how many birds are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "bird",
+                "ship"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a bird and a ship",
+            "question": "are there ships in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "bird",
+                "ship"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a bird and a ship",
+            "question": "how many ships are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "bird",
+                "ship"
+            ]
+        }
+    ],
+    "a realistic photo of a bird and a truck": [
+        {
+            "caption": "a realistic photo of a bird and a truck",
+            "question": "are there birds in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "bird",
+                "truck"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a bird and a truck",
+            "question": "how many birds are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "bird",
+                "truck"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a bird and a truck",
+            "question": "are there trucks in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "bird",
+                "truck"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a bird and a truck",
+            "question": "how many trucks are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "bird",
+                "truck"
+            ]
+        }
+    ],
+    "a realistic photo of a cat and a deer": [
+        {
+            "caption": "a realistic photo of a cat and a deer",
+            "question": "are there cats in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "cat",
+                "deer"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a cat and a deer",
+            "question": "how many cats are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "cat",
+                "deer"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a cat and a deer",
+            "question": "are there deer in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "cat",
+                "deer"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a cat and a deer",
+            "question": "how many deer are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "cat",
+                "deer"
+            ]
+        }
+    ],
+    "a realistic photo of a cat and a dog": [
+        {
+            "caption": "a realistic photo of a cat and a dog",
+            "question": "are there cats in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "cat",
+                "dog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a cat and a dog",
+            "question": "how many cats are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "cat",
+                "dog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a cat and a dog",
+            "question": "are there dogs in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "cat",
+                "dog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a cat and a dog",
+            "question": "how many dogs are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "cat",
+                "dog"
+            ]
+        }
+    ],
+    "a realistic photo of a cat and a frog": [
+        {
+            "caption": "a realistic photo of a cat and a frog",
+            "question": "are there cats in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "cat",
+                "frog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a cat and a frog",
+            "question": "how many cats are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "cat",
+                "frog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a cat and a frog",
+            "question": "are there frogs in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "cat",
+                "frog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a cat and a frog",
+            "question": "how many frogs are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "cat",
+                "frog"
+            ]
+        }
+    ],
+    "a realistic photo of a cat and a horse": [
+        {
+            "caption": "a realistic photo of a cat and a horse",
+            "question": "are there cats in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "cat",
+                "horse"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a cat and a horse",
+            "question": "how many cats are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "cat",
+                "horse"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a cat and a horse",
+            "question": "are there horses in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "cat",
+                "horse"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a cat and a horse",
+            "question": "how many horses are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "cat",
+                "horse"
+            ]
+        }
+    ],
+    "a realistic photo of a cat and a ship": [
+        {
+            "caption": "a realistic photo of a cat and a ship",
+            "question": "are there cats in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "cat",
+                "ship"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a cat and a ship",
+            "question": "how many cats are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "cat",
+                "ship"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a cat and a ship",
+            "question": "are there ships in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "cat",
+                "ship"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a cat and a ship",
+            "question": "how many ships are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "cat",
+                "ship"
+            ]
+        }
+    ],
+    "a realistic photo of a cat and a truck": [
+        {
+            "caption": "a realistic photo of a cat and a truck",
+            "question": "are there cats in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "cat",
+                "truck"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a cat and a truck",
+            "question": "how many cats are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "cat",
+                "truck"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a cat and a truck",
+            "question": "are there trucks in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "cat",
+                "truck"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a cat and a truck",
+            "question": "how many trucks are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "cat",
+                "truck"
+            ]
+        }
+    ],
+    "a realistic photo of a deer and a dog": [
+        {
+            "caption": "a realistic photo of a deer and a dog",
+            "question": "are there deer in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "deer",
+                "dog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a deer and a dog",
+            "question": "how many deer are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "deer",
+                "dog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a deer and a dog",
+            "question": "are there dogs in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "deer",
+                "dog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a deer and a dog",
+            "question": "how many dogs are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "deer",
+                "dog"
+            ]
+        }
+    ],
+    "a realistic photo of a deer and a frog": [
+        {
+            "caption": "a realistic photo of a deer and a frog",
+            "question": "are there deer in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "deer",
+                "frog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a deer and a frog",
+            "question": "how many deer are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "deer",
+                "frog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a deer and a frog",
+            "question": "are there frogs in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "deer",
+                "frog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a deer and a frog",
+            "question": "how many frogs are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "deer",
+                "frog"
+            ]
+        }
+    ],
+    "a realistic photo of a deer and a horse": [
+        {
+            "caption": "a realistic photo of a deer and a horse",
+            "question": "are there deer in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "deer",
+                "horse"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a deer and a horse",
+            "question": "how many deer are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "deer",
+                "horse"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a deer and a horse",
+            "question": "are there horses in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "deer",
+                "horse"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a deer and a horse",
+            "question": "how many horses are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "deer",
+                "horse"
+            ]
+        }
+    ],
+    "a realistic photo of a deer and a ship": [
+        {
+            "caption": "a realistic photo of a deer and a ship",
+            "question": "are there deer in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "deer",
+                "ship"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a deer and a ship",
+            "question": "how many deer are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "deer",
+                "ship"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a deer and a ship",
+            "question": "are there ships in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "deer",
+                "ship"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a deer and a ship",
+            "question": "how many ships are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "deer",
+                "ship"
+            ]
+        }
+    ],
+    "a realistic photo of a deer and a truck": [
+        {
+            "caption": "a realistic photo of a deer and a truck",
+            "question": "are there deer in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "deer",
+                "truck"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a deer and a truck",
+            "question": "how many deer are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "deer",
+                "truck"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a deer and a truck",
+            "question": "are there trucks in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "deer",
+                "truck"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a deer and a truck",
+            "question": "how many trucks are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "deer",
+                "truck"
+            ]
+        }
+    ],
+    "a realistic photo of a dog and a frog": [
+        {
+            "caption": "a realistic photo of a dog and a frog",
+            "question": "are there dogs in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "dog",
+                "frog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a dog and a frog",
+            "question": "how many dogs are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "dog",
+                "frog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a dog and a frog",
+            "question": "are there frogs in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "dog",
+                "frog"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a dog and a frog",
+            "question": "how many frogs are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "dog",
+                "frog"
+            ]
+        }
+    ],
+    "a realistic photo of a dog and a horse": [
+        {
+            "caption": "a realistic photo of a dog and a horse",
+            "question": "are there dogs in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "dog",
+                "horse"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a dog and a horse",
+            "question": "how many dogs are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "dog",
+                "horse"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a dog and a horse",
+            "question": "are there horses in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "dog",
+                "horse"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a dog and a horse",
+            "question": "how many horses are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "dog",
+                "horse"
+            ]
+        }
+    ],
+    "a realistic photo of a dog and a ship": [
+        {
+            "caption": "a realistic photo of a dog and a ship",
+            "question": "are there dogs in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "dog",
+                "ship"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a dog and a ship",
+            "question": "how many dogs are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "dog",
+                "ship"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a dog and a ship",
+            "question": "are there ships in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "dog",
+                "ship"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a dog and a ship",
+            "question": "how many ships are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "dog",
+                "ship"
+            ]
+        }
+    ],
+    "a realistic photo of a dog and a truck": [
+        {
+            "caption": "a realistic photo of a dog and a truck",
+            "question": "are there dogs in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "dog",
+                "truck"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a dog and a truck",
+            "question": "how many dogs are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "dog",
+                "truck"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a dog and a truck",
+            "question": "are there trucks in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "dog",
+                "truck"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a dog and a truck",
+            "question": "how many trucks are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "dog",
+                "truck"
+            ]
+        }
+    ],
+    "a realistic photo of a frog and a horse": [
+        {
+            "caption": "a realistic photo of a frog and a horse",
+            "question": "are there frogs in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "frog",
+                "horse"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a frog and a horse",
+            "question": "how many frogs are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "frog",
+                "horse"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a frog and a horse",
+            "question": "are there horses in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "frog",
+                "horse"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a frog and a horse",
+            "question": "how many horses are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "frog",
+                "horse"
+            ]
+        }
+    ],
+    "a realistic photo of a frog and a ship": [
+        {
+            "caption": "a realistic photo of a frog and a ship",
+            "question": "are there frogs in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "frog",
+                "ship"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a frog and a ship",
+            "question": "how many frogs are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "frog",
+                "ship"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a frog and a ship",
+            "question": "are there ships in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "frog",
+                "ship"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a frog and a ship",
+            "question": "how many ships are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "frog",
+                "ship"
+            ]
+        }
+    ],
+    "a realistic photo of a frog and a truck": [
+        {
+            "caption": "a realistic photo of a frog and a truck",
+            "question": "are there frogs in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "frog",
+                "truck"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a frog and a truck",
+            "question": "how many frogs are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "frog",
+                "truck"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a frog and a truck",
+            "question": "are there trucks in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "frog",
+                "truck"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a frog and a truck",
+            "question": "how many trucks are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "frog",
+                "truck"
+            ]
+        }
+    ],
+    "a realistic photo of a horse and a ship": [
+        {
+            "caption": "a realistic photo of a horse and a ship",
+            "question": "are there horses in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "horse",
+                "ship"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a horse and a ship",
+            "question": "how many horses are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "horse",
+                "ship"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a horse and a ship",
+            "question": "are there ships in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "horse",
+                "ship"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a horse and a ship",
+            "question": "how many ships are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "horse",
+                "ship"
+            ]
+        }
+    ],
+    "a realistic photo of a horse and a truck": [
+        {
+            "caption": "a realistic photo of a horse and a truck",
+            "question": "are there horses in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "horse",
+                "truck"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a horse and a truck",
+            "question": "how many horses are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "horse",
+                "truck"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a horse and a truck",
+            "question": "are there trucks in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "horse",
+                "truck"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a horse and a truck",
+            "question": "how many trucks are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "horse",
+                "truck"
+            ]
+        }
+    ],
+    "a realistic photo of a ship and a truck": [
+        {
+            "caption": "a realistic photo of a ship and a truck",
+            "question": "are there ships in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "ship",
+                "truck"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a ship and a truck",
+            "question": "how many ships are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "ship",
+                "truck"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a ship and a truck",
+            "question": "are there trucks in the photo?",
+            "choices": [
+                "yes",
+                "no"
+            ],
+            "answer": "yes",
+            "element_type": "object",
+            "objects": [
+                "ship",
+                "truck"
+            ]
+        },
+        {
+            "caption": "a realistic photo of a ship and a truck",
+            "question": "how many trucks are there in the photo?",
+            "choices": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "answer": "1",
+            "element_type": "count",
+            "objects": [
+                "ship",
+                "truck"
+            ]
+        }
+    ]
+}
