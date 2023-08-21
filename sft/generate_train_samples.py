@@ -6,6 +6,7 @@ Example usage:
 """
 
 import argparse
+import collections
 import errno
 import glob
 import itertools
@@ -14,7 +15,6 @@ import os
 
 from accelerate import PartialState
 from diffusers import DiffusionPipeline
-from tifascore.vqa_models import VQAModel
 import torch
 from tqdm.auto import tqdm
 
@@ -30,7 +30,8 @@ def parse_args():
   parser.add_argument('--outdir', type=str, default=None)
   parser.add_argument('--num_seeds', type=int, default=20)
   parser.add_argument('--num_imgs_per_seed', type=int, default=1)
-  parser.add_argument('--split_captions', type=bool, default=False)
+  parser.add_argument('--reward_type', type=str, default='vqa')
+  parser.add_argument('--split_captions', type=bool, default=True)
   parser.add_argument('--model_name', type=str,
                       default='stabilityai/stable-diffusion-2-1')
   parser.add_argument('--revision', type=str, default=None)
@@ -53,8 +54,8 @@ def mkdir_p(path):
 
 def image_filename(pidx, seed, iidx, imgdir=None):
   if imgdir:
-    return os.path.join(imgdir, f'image_{pidx}_{seed}_{iidx}.png')
-  return os.path.join(f'image_{pidx}_{seed}_{iidx}.png')
+    return os.path.join(imgdir, f'image_{pidx}_{seed}_{iidx}.jpg')
+  return os.path.join(f'image_{pidx}_{seed}_{iidx}.jpg')
 
 
 def generate_images(args, all_captions, c_to_idx, imgdir, lora_path=None):
@@ -117,35 +118,58 @@ def generate_images(args, all_captions, c_to_idx, imgdir, lora_path=None):
 
 def compute_rewards(args, paths, captions, image_names, cqas):
   """Computes rewards and returns the final data dict."""
-  vqa_model = VQAModel('mplug-large')
 
-  # TODO(kykim): Perhaps can do an extra check to only evaluate the ones we
-  # have not already, but the reward computation is fast enough for now.
+  def subroutine(rtype, captions, image_paths):
+    if rtype == 'vqa':
+      return rewards.vqa_rewards(captions, image_paths, cqas)
+    elif rtype == 'clip':
+      return rewards.clip_score(captions, image_paths)
+    elif rtype == 'blip':
+      return rewards.blip_score(captions, image_paths)
+    elif rtype == 'pickscore':
+      return rewards.pick_score(captions, image_paths)
+    elif rtype == 'imagereward':
+      return rewards.image_reward(captions, image_paths)
+    raise ValueError(f'Unsupported reward type: {rtype}')
+
+  batch = 10
+  reward_types = args.reward_type.split(',')
   with state.split_between_processes(paths) as sub_paths:
     for path in tqdm(sub_paths):
       # Skip the path if the metadata file exists.
+      # TODO(kykim): Perhaps can do an extra check to only evaluate the ones we
+      # have not already, but the reward computation is fast enough for now.
       metadata_filename = os.path.join(path, args.metadata_filename)
       if os.path.exists(metadata_filename): continue
 
       image_paths = [os.path.join(path, 'images', name)
                      for name in image_names]
-      vqa_rs = rewards.vqa_rewards(captions, image_paths, cqas, vqa_model)
+      reward_dicts = collections.defaultdict(list)
+      for idx in range((len(image_names) + batch - 1) // batch):
+        sub_image_paths = image_paths[idx * batch:(idx + 1) * batch]
+        sub_captions = captions[idx * batch:(idx + 1) * batch]
+        for reward_type in reward_types:
+          reward_dicts[reward_type].extend(
+              subroutine(reward_type, sub_captions, sub_image_paths))
 
       data_dicts = []
-      for caption, image_name, vqa_r in zip(captions, image_names, vqa_rs):
-        data_dicts.append({
+      for idx, (caption, image_name) in enumerate(zip(captions, image_names)):
+        data_dict = {
             'image': image_name,
             'caption': caption,
             'rewards': {
-                'human': -1,   # Initialize human label as -1.
-                'vqa': vqa_r,
+                'human': [
+                    -1,  # Initialize human label as -1.
+                ],
             }
-        })
+        }
+        for reward_type, all_rewards in reward_dicts.items():
+          data_dict['rewards'][reward_type] = all_rewards[idx]
+        data_dicts.append(data_dict)
 
       with open(metadata_filename, 'w') as f:
         json.dump(data_dicts, f, indent=4)
 
-  del vqa_model
   torch.cuda.empty_cache()
 
 
