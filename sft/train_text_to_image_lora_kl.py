@@ -295,6 +295,7 @@ def parse_args():
       help='Filter examples with reward less than this threshold, if set.',
   )
   parser.add_argument('--reward_type', type=str, default='vqa')
+  parser.add_argument('--normalize', action='store_true', default=False)
   parser.add_argument(
       '--scale_lr',
       action='store_true',
@@ -514,8 +515,10 @@ def main():
   args.output_dir += '/b' + str(total_batch_size)
   args.output_dir += '_lr' + str(args.learning_rate)
   args.output_dir += '_kl' + str(args.kl_coeff)
-  if args.r_threshold:
+  if args.r_threshold is not None:
     args.output_dir += '_rt' + str(args.r_threshold)
+  if args.normalize:
+    args.output_dir += '_norm'
   args.output_dir += '_max' + str(args.max_train_steps)
   if args.iteration is not None:
     args.output_dir += '/it' + str(args.iteration)
@@ -700,9 +703,23 @@ def main():
 
     # Filtering.
     train_dict = {'images': [], 'captions': [], 'rewards': []}
-    reward_type = args.reward_type
+    r_type = args.reward_type
+
+    if (args.normalize and
+        r_type in ('clip', 'blip', 'pickscore', 'imagereward')):
+      r_max, r_min = 1.0, -1.0
+      if r_type == 'imagereward':
+        rewards = [data_dict['rewards'][r_type] for data_dict in data_dicts]
+        r_max, r_min = np.max(rewards), np.min(rewards)
+      for data_dict in data_dicts:
+        reward = data_dict['rewards'][r_type]
+        data_dict['rewards'][r_type] = (reward - r_min) / (r_max - r_min)
+      args.r_threshold = (args.r_threshold - r_min) / (r_max - r_min)
+
     for data_dict in data_dicts:
-      reward = data_dict['rewards'][reward_type]
+      reward = data_dict['rewards'][r_type]
+      # reward_vqa = data_dict['rewards']['vqa']
+      # reward *= reward_vqa
       # reward = np.mean(data_dict['rewards']['human'])
       image_fn = os.path.join(basedir, 'images', data_dict['image'])
       if args.r_threshold is None or reward >= args.r_threshold:
@@ -871,7 +888,6 @@ def main():
   # Run inference and save the 0-th checkpoint before starting training.
   if accelerator.is_main_process:
     test_batch = get_test_prompts(args)
-    # inference(args, accelerator, unet, weight_dtype, test_batch, global_step)
     save_path = os.path.join(args.output_dir, 'checkpoint', 'ckpt_0')
     unet.save_attn_procs(save_path)
     accelerator.save_state(save_path)
