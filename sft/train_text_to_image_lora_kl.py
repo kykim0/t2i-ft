@@ -197,6 +197,8 @@ def parse_args():
       default=None,
       help='If provided, take this many samples from the metadata.',
   )
+  parser.add_argument('--elite_samples', type=float, default=None,
+                      help='If provided, take top this portion of samples only')
   parser.add_argument(
       '--validation_prompt', type=str, default=None, help='A prompt that is sampled during training for inference.'
   )
@@ -517,6 +519,8 @@ def main():
   args.output_dir += '_kl' + str(args.kl_coeff)
   if args.r_threshold is not None:
     args.output_dir += '_rt' + str(args.r_threshold)
+  if args.elite_samples is not None:
+    args.output_dir += '_es' + str(args.elite_samples)
   if args.normalize:
     args.output_dir += '_norm'
   args.output_dir += '_max' + str(args.max_train_steps)
@@ -694,17 +698,21 @@ def main():
       cache_dir=args.cache_dir,
     )
   else:
+    r_type = args.reward_type
     basedir = args.train_data_dir
     train_file = os.path.join(basedir, args.train_metadata_filename)
     with open(train_file) as json_file:
       data_dicts = json.load(json_file)
       if args.train_metadata_limit:
         data_dicts = data_dicts[:args.train_metadata_limit]
+      if args.elite_samples is not None:
+        data_dicts = sorted(data_dicts, key=lambda d: d['rewards'][r_type],
+                            reverse=True)
+        num_elites = int(len(data_dicts) * args.elite_samples)
+        data_dicts = data_dicts[:num_elites]
+        args.r_threshold = data_dicts[-1]['rewards'][r_type]
 
-    # Filtering.
-    train_dict = {'images': [], 'captions': [], 'rewards': []}
-    r_type = args.reward_type
-
+    # Score normalization.
     if (args.normalize and
         r_type in ('clip', 'blip', 'pickscore', 'imagereward')):
       r_max, r_min = 1.0, -1.0
@@ -716,6 +724,7 @@ def main():
         data_dict['rewards'][r_type] = (reward - r_min) / (r_max - r_min)
       args.r_threshold = (args.r_threshold - r_min) / (r_max - r_min)
 
+    train_dict = {'images': [], 'captions': [], 'rewards': []}
     for data_dict in data_dicts:
       reward = data_dict['rewards'][r_type]
       # reward_vqa = data_dict['rewards']['vqa']
