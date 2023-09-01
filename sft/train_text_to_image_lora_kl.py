@@ -521,6 +521,13 @@ def main():
     args.output_dir += '_rt' + str(args.r_threshold)
   if args.elite_samples is not None:
     args.output_dir += '_es' + str(args.elite_samples)
+  if args.train_metadata_limit is not None:
+    limit = args.train_metadata_limit
+    if limit < 1000:
+      l_str = str(limit)
+    else:
+      l_str = f'{limit // 1000}k' if limit % 1000 == 0 else f'{limit / 1000}k'
+    args.output_dir += '_l' + l_str
   if args.normalize:
     args.output_dir += '_norm'
   args.output_dir += '_max' + str(args.max_train_steps)
