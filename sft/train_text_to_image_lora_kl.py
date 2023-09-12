@@ -514,6 +514,8 @@ def main():
   total_batch_size = args.train_batch_size * torch.cuda.device_count() * args.gradient_accumulation_steps
 
   # Set log_dir.
+  if args.iteration is not None:
+    args.output_dir += '/it' + str(args.iteration)
   args.output_dir += '/b' + str(total_batch_size)
   args.output_dir += '_lr' + str(args.learning_rate)
   args.output_dir += '_kl' + str(args.kl_coeff)
@@ -529,10 +531,8 @@ def main():
       l_str = f'{limit // 1000}k' if limit % 1000 == 0 else f'{limit / 1000}k'
     args.output_dir += '_l' + l_str
   if args.normalize:
-    args.output_dir += '_norm'
+    args.output_dir += '_norm2'
   args.output_dir += '_max' + str(args.max_train_steps)
-  if args.iteration is not None:
-    args.output_dir += '/it' + str(args.iteration)
 
   logging_dir = os.path.join(args.output_dir, args.logging_dir)
   mkdir_p(os.path.join(args.output_dir, 'checkpoint'))
@@ -710,26 +710,22 @@ def main():
     train_file = os.path.join(basedir, args.train_metadata_filename)
     with open(train_file) as json_file:
       data_dicts = json.load(json_file)
-      if args.train_metadata_limit:
-        data_dicts = data_dicts[:args.train_metadata_limit]
-      if args.elite_samples is not None:
-        data_dicts = sorted(data_dicts, key=lambda d: d['rewards'][r_type],
-                            reverse=True)
-        num_elites = int(len(data_dicts) * args.elite_samples)
-        data_dicts = data_dicts[:num_elites]
-        args.r_threshold = data_dicts[-1]['rewards'][r_type]
-
-    # Score normalization.
-    if (args.normalize and
-        r_type in ('clip', 'blip', 'pickscore', 'imagereward')):
-      r_max, r_min = 1.0, -1.0
-      if r_type == 'imagereward':
-        rewards = [data_dict['rewards'][r_type] for data_dict in data_dicts]
-        r_max, r_min = np.max(rewards), np.min(rewards)
+    if args.train_metadata_limit:
+      data_dicts = data_dicts[:args.train_metadata_limit]
+    if args.normalize:
+      rewards = [data_dict['rewards'][r_type] for data_dict in data_dicts]
+      r_max, r_min = np.max(rewards), np.min(rewards)
       for data_dict in data_dicts:
         reward = data_dict['rewards'][r_type]
         data_dict['rewards'][r_type] = (reward - r_min) / (r_max - r_min)
-      args.r_threshold = (args.r_threshold - r_min) / (r_max - r_min)
+      if args.r_threshold is not None:
+        args.r_threshold = (args.r_threshold - r_min) / (r_max - r_min)
+    if args.elite_samples is not None:
+      data_dicts = sorted(data_dicts, key=lambda d: d['rewards'][r_type],
+                          reverse=True)
+      num_elites = int(len(data_dicts) * args.elite_samples)
+      data_dicts = data_dicts[:num_elites]
+      args.r_threshold = data_dicts[-1]['rewards'][r_type]
 
     train_dict = {'images': [], 'captions': [], 'rewards': []}
     for data_dict in data_dicts:
@@ -848,7 +844,6 @@ def main():
   if accelerator.is_main_process:
     run_name = os.path.basename(args.output_dir)
     config_dict = vars(args)
-    config_dict['resume_from_checkpoint'] = None  # To appease wandb.
     accelerator.init_trackers(
         args.tracker_project_name,
         config=config_dict,
@@ -888,13 +883,30 @@ def main():
       accelerator.load_state(ckpt_path)
       path = os.path.basename(ckpt_path)
       # Resume from the previous step if not an autophagy experiment.
-      if not args.iteration:
+      first_epoch, resume_step = 0, 0
+      if args.iteration:
+        # In case of an autophagy experiment, use whatever the new LR is.
+        optimizer = optimizer_cls(
+            lora_layers.parameters(),
+            lr=args.learning_rate,
+            betas=(args.adam_beta1, args.adam_beta2),
+            weight_decay=args.adam_weight_decay,
+            eps=args.adam_epsilon,
+        )
+        lr_scheduler = get_scheduler(
+            args.lr_scheduler,
+            optimizer=optimizer,
+            num_warmup_steps=args.lr_warmup_steps * args.gradient_accumulation_steps,
+            num_training_steps=args.max_train_steps * args.gradient_accumulation_steps,
+        )
+        optimizer, lr_scheduler = accelerator.prepare(optimizer, lr_scheduler)
+      else:
         global_step = int(path.split('_')[1])
         resume_global_step = global_step * args.gradient_accumulation_steps
         first_epoch = global_step // num_update_steps_per_epoch
         resume_step = resume_global_step % (num_update_steps_per_epoch * args.gradient_accumulation_steps)
-        accelerator.print(f'Resume step: {resume_global_step}.')
-        accelerator.print(f'Resume epoch: {first_epoch}')
+      accelerator.print(f'Resume step: {resume_step}.')
+      accelerator.print(f'Resume epoch: {first_epoch}')
 
   # Only show the progress bar once on each machine.
   progress_bar = tqdm(range(global_step, args.max_train_steps),
