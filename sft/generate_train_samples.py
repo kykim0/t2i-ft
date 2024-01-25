@@ -14,7 +14,7 @@ import json
 import os
 
 from accelerate import PartialState
-from diffusers import DiffusionPipeline
+from diffusers import StableDiffusionPipeline
 import torch
 from tqdm.auto import tqdm
 
@@ -30,7 +30,7 @@ def parse_args():
   parser.add_argument('--outdir', type=str, default=None)
   parser.add_argument('--num_seeds', type=int, default=20)
   parser.add_argument('--num_imgs_per_seed', type=int, default=1)
-  parser.add_argument('--reward_type', type=str, default='vqa')
+  parser.add_argument('--reward_type', type=str, default=None)
   parser.add_argument('--split_captions', type=bool, default=True)
   parser.add_argument('--model_name', type=str,
                       default='stabilityai/stable-diffusion-2-1')
@@ -64,7 +64,7 @@ def generate_images(args, all_captions, c_to_idx, imgdir, lora_path=None):
   dtype = torch.float16
 
   # Load a pre-trained model.
-  pipe = DiffusionPipeline.from_pretrained(
+  pipe = StableDiffusionPipeline.from_pretrained(
       model_name,
       revision=args.revision,
       torch_dtype=dtype,
@@ -79,43 +79,47 @@ def generate_images(args, all_captions, c_to_idx, imgdir, lora_path=None):
   seeds = list(range(args.num_seeds))
   num_imgs_per_seed = args.num_imgs_per_seed
 
-  def subroutine(captions, seeds):
+  batch = 10
+  def subroutine(caption, seeds):
+    cidx = c_to_idx[caption]
     for seed in seeds:
-      # Continue if all images for the seed already generated.
-      filenames = [
-          image_filename(c_to_idx[caption], seed, iidx, imgdir)
-          for iidx in range(args.num_imgs_per_seed)
-      ]
-      if all(os.path.exists(fn) for fn in filenames): continue
-
       generator = torch.Generator(device).manual_seed(seed)
-      img_results = pipe(captions, generator=generator).images
-      for iidx, img_result in enumerate(img_results):
-        filename = image_filename(c_to_idx[caption], seed, iidx, imgdir)
-        img_result.save(filename)
+      for idx in range((num_imgs_per_seed + batch - 1) // batch):
+        offset = idx * batch
+        num_imgs = min(batch, num_imgs_per_seed - offset)
+        # Continue if all images for the batch already generated.
+        filenames = [
+            image_filename(cidx, seed, iidx + offset, imgdir)
+            for iidx in range(num_imgs)
+        ]
+        if all(os.path.exists(fn) for fn in filenames): continue
+        img_results = pipe([caption] * num_imgs, generator=generator).images
+        for iidx, img_result in enumerate(img_results):
+          filename = image_filename(cidx, seed, iidx + offset, imgdir)
+          img_result.save(filename)
 
   if args.split_captions:
     with state.split_between_processes(all_captions) as sub_captions:
       for caption in tqdm(sub_captions):
-        captions = [caption] * num_imgs_per_seed
         print(f'({state.local_process_index}) Generating images for: '
               f'"{caption}" with seeds {seeds}')
-        subroutine(captions, seeds)
+        subroutine(caption, seeds)
   else:
     for caption in all_captions:
-      captions = [caption] * num_imgs_per_seed
       # TODO(kykim): We tried shuffling the seed list before the split, but the
       # naive approach does not do it correctly. It appears that each process
       # does its own shuffling and takes its portion afterwards.
       with state.split_between_processes(seeds) as sub_seeds:
         print(f'({state.local_process_index}) Generating images for: '
               f'"{caption}" with seeds {sub_seeds}')
-        subroutine(captions, tqdm(sub_seeds))
+        subroutine(caption, tqdm(sub_seeds))
 
+  state.wait_for_everyone()
   del pipe
   torch.cuda.empty_cache()
 
 
+@state.on_main_process
 def compute_rewards(args, paths, captions, image_names, cqas):
   """Computes rewards and returns the final data dict."""
 
@@ -130,9 +134,11 @@ def compute_rewards(args, paths, captions, image_names, cqas):
       return rewards.pick_score(captions, image_paths)
     elif rtype == 'imagereward':
       return rewards.image_reward(captions, image_paths)
+    elif rtype == 'hpsv2':
+      return rewards.hpsv2_reward(captions, image_paths)
     raise ValueError(f'Unsupported reward type: {rtype}')
 
-  batch = 10
+  batch = 20
   reward_types = args.reward_type.split(',')
   with state.split_between_processes(paths) as sub_paths:
     for path in tqdm(sub_paths):
@@ -145,7 +151,7 @@ def compute_rewards(args, paths, captions, image_names, cqas):
       image_paths = [os.path.join(path, 'images', name)
                      for name in image_names]
       reward_dicts = collections.defaultdict(list)
-      for idx in range((len(image_names) + batch - 1) // batch):
+      for idx in tqdm(range((len(image_names) + batch - 1) // batch)):
         sub_image_paths = image_paths[idx * batch:(idx + 1) * batch]
         sub_captions = captions[idx * batch:(idx + 1) * batch]
         for reward_type in reward_types:
@@ -164,7 +170,7 @@ def compute_rewards(args, paths, captions, image_names, cqas):
             }
         }
         for reward_type, all_rewards in reward_dicts.items():
-          data_dict['rewards'][reward_type] = all_rewards[idx]
+          data_dict['rewards'][reward_type] = float(all_rewards[idx])
         data_dicts.append(data_dict)
 
       with open(metadata_filename, 'w') as f:
@@ -183,8 +189,12 @@ def main():
     return
 
   with open(cqa_file, 'r') as f:
-    cqas = json.load(f)
-  all_captions = list(cqas.keys())
+    if cqa_file.endswith('.json'):
+      cqas = json.load(f)
+    else:
+      cqas = [l.strip() for l in f]
+  all_captions = list(cqas.keys()) if isinstance(cqas, dict) else cqas
+  print(all_captions)
   c_to_idx = {caption: idx for idx, caption in enumerate(all_captions)}
 
   # Generate images using either a pre-trained or fine-tuned model.
@@ -203,10 +213,7 @@ def main():
     mkdir_p(imgdir)
     generate_images(args, all_captions, c_to_idx, imgdir, lora_path=lora_path)
 
-  # TODO(kykim): Somehow the VQA model gets replicated multiple times in the
-  # main process memory. Run the reward computation using only a single GPU
-  # until we fix the issue. This part is also fast enough.
-  if not state.is_main_process: return
+  if not args.reward_type: return
 
   # Compute rewards and write out to a json.
   image_names, captions = [], []
@@ -215,6 +222,11 @@ def main():
     image_names.append(image_filename(c_to_idx[caption], seed, iidx))
     captions.append(caption)
   compute_rewards(args, paths, captions, image_names, cqas)
+  prompts_dict = {image_name: caption for image_name, caption in zip(image_names, captions)}
+  with open(f'{basedir}/prompts.json', 'w') as f:
+    json.dump(prompts_dict, f, indent=4)
+
+  state.wait_for_everyone()
 
 
 if __name__ == '__main__':

@@ -3,6 +3,7 @@
 from PIL import Image
 
 import clip
+import hpsv2
 import ImageReward as RM
 from lavis.models import load_model_and_preprocess
 import numpy as np
@@ -43,6 +44,14 @@ def clip_score(captions, image_paths):
     # Only take the scores for pairwise image and text features.
     logits = torch.diagonal(logits_per_image, 0)
 
+    # Cosine sim can also be computed as follows:
+    #   image_features = clip_model.encode_image(image_inputs)
+    #   text_features = clip_model.encode_text(text_inputs)
+    #   image_features /= image_features.norm(dim=-1, keepdim=True)
+    #   text_features /= text_features.norm(dim=-1, keepdim=True)
+    #   similarity = image_features @ text_features.T
+    #   similarity = torch.diagonal(similarity, 0)
+
   return (logits.cpu().numpy() / 100.0).tolist()
 
 
@@ -72,7 +81,7 @@ def blip_score(captions, image_paths):
 
   # Use low-dimensional projected features for similarity scoring.
   image_embeds_proj = features_image.image_embeds_proj  # [batch, 32, 256]
-  text_embeds_proj = features_text.text_embeds_proj     # [batch, 10, 256]
+  text_embeds_proj = features_text.text_embeds_proj     # [batch, td, 256]
   similarity = image_embeds_proj @ text_embeds_proj[:, 0, :].unsqueeze(-1)
   similarity = torch.max(similarity, dim=1).values.squeeze(-1)
   return similarity.cpu().numpy().tolist()
@@ -107,7 +116,9 @@ def pick_score(captions, image_paths):
     text_embs = text_embs / torch.norm(text_embs, dim=-1, keepdim=True)
 
     # Pick score.
-    embs_dot = torch.sum(torch.multiply(text_embs, image_embs), dim=-1)
+    embs_dot = text_embs @ image_embs.T
+    # Only take the scores for pairwise image and text features.
+    embs_dot = torch.diagonal(embs_dot, 0)
     scores = pickscore_model.logit_scale.exp() * embs_dot / 100.0
 
   return scores.cpu().numpy().tolist()
@@ -123,8 +134,23 @@ def image_reward(captions, image_paths):
   image_paths = image_paths if isinstance(image_paths, list) else [image_paths]
 
   rewards = []
+  # scores = ir_model.score(captions, image_paths)
+  # scores = scores if isinstance(scores, list) else [scores]
+  # for i in range(len(image_paths)):
+  #   per_image_scores = scores[len(captions)*i:len(captions)*(i+1)]
+  #   rewards.append(per_image_scores[i])
   for caption, image_path in zip(captions, image_paths):
     rewards.append(ir_model.score(caption, [image_path]))
+  return rewards
+
+
+def hpsv2_reward(captions, image_paths):
+  captions = captions if isinstance(captions, list) else [captions]
+  image_paths = image_paths if isinstance(image_paths, list) else [image_paths]
+
+  rewards = []
+  for caption, image_path in zip(captions, image_paths):
+    rewards.extend(hpsv2.score(image_path, caption))
   return rewards
 
 
@@ -156,3 +182,41 @@ def vqa_rewards(captions, image_paths, cqas):
     rewards.append(np.mean(vqa_scores))
 
   return rewards
+
+
+if __name__ == '__main__':
+  captions = [
+      'an airplane to the left of an automobile',
+      'an airplane to the left of an automobile',
+      'a horse above an airplane',
+      'a horse above an airplane',
+      'a deer to the left of an automobile',
+      'a deer to the left of an automobile',
+  ]
+  basedir = '/home/kykim/dev/t2i-eval/datasets/cifar10/spatial_relation/images'
+  image_paths = [
+      f'{basedir}/cifar10_0_0_0.jpg',
+      f'{basedir}/cifar10_0_0_1.jpg',
+      f'{basedir}/cifar10_54_1_1.jpg',
+      f'{basedir}/cifar10_54_1_2.jpg',
+      f'{basedir}/cifar10_92_0_0.jpg',
+      f'{basedir}/cifar10_92_0_1.jpg',
+  ]
+
+  # print(f'CLIP: {clip_score(captions, image_paths)}')
+  # for caption, image_path in zip(captions, image_paths):
+  #   print(f'{clip_score(caption, image_path)}')
+
+  # captions = ['a large fountain spewing water into the air']
+  # image_paths = ['/home/kykim/dev/t2i-ft/sft/datasets/merlion.png']
+  # print(f'BLIP: {blip_score(captions, image_paths)}')
+  # for caption, image_path in zip(captions, image_paths):
+  #   print(f'{blip_score(caption, image_path)}')
+
+  # print(f'PickScore: {pick_score(captions, image_paths)}')
+  # for caption, image_path in zip(captions, image_paths):
+  #   print(f'{pick_score(caption, image_path)}')
+
+  print(f'ImageReward: {image_reward(captions, image_paths)}')
+  for caption, image_path in zip(captions, image_paths):
+    print(f'{image_reward(caption, image_path)}')

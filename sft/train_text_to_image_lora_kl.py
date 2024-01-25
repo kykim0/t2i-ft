@@ -15,6 +15,7 @@
 """Fine-tuning script for Stable Diffusion for text2image with support for LoRA."""
 
 import argparse
+import collections
 import errno
 import json
 import logging
@@ -148,7 +149,7 @@ def parse_args():
   parser.add_argument(
       '--pretrained_model_name_or_path',
       type=str,
-      # default='runwayml/stable-diffusion-v1-5',
+      # 'runwayml/stable-diffusion-v1-5', 'stabilityai/stable-diffusion-2-1-base'
       default='stabilityai/stable-diffusion-2-1',
       help='Path to pretrained model or model identifier from huggingface.co/models.',
   )
@@ -519,20 +520,17 @@ def main():
   args.output_dir += '/b' + str(total_batch_size)
   args.output_dir += '_lr' + str(args.learning_rate)
   args.output_dir += '_kl' + str(args.kl_coeff)
-  if args.r_threshold is not None:
+  if args.r_threshold:
     args.output_dir += '_rt' + str(args.r_threshold)
-  if args.elite_samples is not None:
+  if args.elite_samples:
     args.output_dir += '_es' + str(args.elite_samples)
-  if args.train_metadata_limit is not None:
+  if args.train_metadata_limit:
     limit = args.train_metadata_limit
     if limit < 1000:
       l_str = str(limit)
     else:
       l_str = f'{limit // 1000}k' if limit % 1000 == 0 else f'{limit / 1000}k'
     args.output_dir += '_l' + l_str
-  if args.normalize:
-    args.output_dir += '_norm2'
-  args.output_dir += '_max' + str(args.max_train_steps)
 
   logging_dir = os.path.join(args.output_dir, args.logging_dir)
   mkdir_p(os.path.join(args.output_dir, 'checkpoint'))
@@ -708,31 +706,31 @@ def main():
     r_type = args.reward_type
     basedir = args.train_data_dir
     train_file = os.path.join(basedir, args.train_metadata_filename)
-    with open(train_file) as json_file:
-      data_dicts = json.load(json_file)
-    if args.train_metadata_limit:
-      data_dicts = data_dicts[:args.train_metadata_limit]
-    if args.normalize:
-      rewards = [data_dict['rewards'][r_type] for data_dict in data_dicts]
-      r_max, r_min = np.max(rewards), np.min(rewards)
-      for data_dict in data_dicts:
-        reward = data_dict['rewards'][r_type]
-        data_dict['rewards'][r_type] = (reward - r_min) / (r_max - r_min)
-      if args.r_threshold is not None:
-        args.r_threshold = (args.r_threshold - r_min) / (r_max - r_min)
-    if args.elite_samples is not None:
-      data_dicts = sorted(data_dicts, key=lambda d: d['rewards'][r_type],
-                          reverse=True)
-      num_elites = int(len(data_dicts) * args.elite_samples)
-      data_dicts = data_dicts[:num_elites]
-      args.r_threshold = data_dicts[-1]['rewards'][r_type]
+    prompt_to_ds = collections.defaultdict(list)
+    with open(train_file, 'r') as json_file:
+      for data_dict in json.load(json_file):
+        prompt_to_ds[data_dict['caption']].append(data_dict)
+
+    all_data_dicts = []
+    for _, data_dicts in prompt_to_ds.items():
+      if args.train_metadata_limit:
+        data_dicts = data_dicts[:args.train_metadata_limit]
+      if args.normalize:
+        rewards = [data_dict['rewards'][r_type] for data_dict in data_dicts]
+        r_max, r_min = np.max(rewards), np.min(rewards)
+        for data_dict in data_dicts:
+          reward = data_dict['rewards'][r_type]
+          data_dict['rewards'][r_type] = (reward - r_min) / (r_max - r_min)
+      if args.elite_samples > 0:
+        data_dicts = sorted(data_dicts, key=lambda d: d['rewards'][r_type],
+                            reverse=True)
+        num_elites = int(len(data_dicts) * args.elite_samples)
+        data_dicts = data_dicts[:num_elites]
+      all_data_dicts.extend(data_dicts)
 
     train_dict = {'images': [], 'captions': [], 'rewards': []}
-    for data_dict in data_dicts:
+    for data_dict in all_data_dicts:
       reward = data_dict['rewards'][r_type]
-      # reward_vqa = data_dict['rewards']['vqa']
-      # reward *= reward_vqa
-      # reward = np.mean(data_dict['rewards']['human'])
       image_fn = os.path.join(basedir, 'images', data_dict['image'])
       if args.r_threshold is None or reward >= args.r_threshold:
         train_dict['images'].append(image_fn)
@@ -907,19 +905,18 @@ def main():
         resume_step = resume_global_step % (num_update_steps_per_epoch * args.gradient_accumulation_steps)
       accelerator.print(f'Resume step: {resume_step}.')
       accelerator.print(f'Resume epoch: {first_epoch}')
-
-  # Only show the progress bar once on each machine.
-  progress_bar = tqdm(range(global_step, args.max_train_steps),
-                      disable=not accelerator.is_local_main_process)
-  progress_bar.set_description('Steps')
-
-  # Run inference and save the 0-th checkpoint before starting training.
-  if accelerator.is_main_process:
+  elif accelerator.is_main_process:
+    # Run inference and save the 0-th checkpoint before starting training.
     test_batch = get_test_prompts(args)
     save_path = os.path.join(args.output_dir, 'checkpoint', 'ckpt_0')
     unet.save_attn_procs(save_path)
     accelerator.save_state(save_path)
     logger.info(f'Saved a checkpoint to {save_path}')
+
+  # Only show the progress bar once on each machine.
+  progress_bar = tqdm(range(global_step, args.max_train_steps),
+                      disable=not accelerator.is_local_main_process)
+  progress_bar.set_description('Steps')
 
   for epoch in range(first_epoch, args.num_train_epochs):
     unet.train()
